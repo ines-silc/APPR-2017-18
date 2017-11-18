@@ -1,0 +1,170 @@
+"Naravni viri po: KAZALNIK , LETO"
+
+"Konèna poraba energije na prebivalca (toe/prebivalca)"
+" ";"2000";2.3
+" ";"2001";2.4
+" ";"2002";2.3
+" ";"2003";2.5
+" ";"2004";2.5
+" ";"2005";2.5
+" ";"2006";2.6
+" ";"2007";2.5
+" ";"2008";2.7
+" ";"2009";2.5
+" ";"2010";2.5
+" ";"2011";2.5
+" ";"2012";2.4
+" ";"2013";2.4
+" ";"2014";2.3
+" ";"2015";2.3
+"Delež obnovljivih virov energije v konèni porabi energije (%)"
+" ";"2000";9.5
+" ";"2001";9.1
+" ";"2002";8.5
+" ";"2003";8.9
+" ";"2004";8.8
+" ";"2005";8.9
+" ";"2006";8.5
+" ";"2007";8.5
+" ";"2008";8.1
+" ";"2009";12.5
+" ";"2010";13.3
+" ";"2011";13.2
+" ";"2012";13.3
+" ";"2013";14.5
+" ";"2014";13.3
+" ";"2015";13.8
+"Poraba vode iz javnega vodovoda v gospodinjstvih na prebivalca (m3/prebivalca)"
+" ";"2000";...
+" ";"2001";...
+" ";"2002";44.4
+" ";"2003";46.1
+" ";"2004";43.4
+" ";"2005";42.4
+" ";"2006";43.0
+" ";"2007";43.8
+" ";"2008";44.0
+" ";"2009";41.8
+" ";"2010";41.2
+" ";"2011";40.7
+" ";"2012";41.3
+" ";"2013";38.2
+" ";"2014";38.1
+" ";"2015";38.1
+"Kolièina nastalih komunalnih odpadkov na prebivalca (kg/prebivalca)"
+" ";"2000";...
+" ";"2001";...
+" ";"2002";426
+" ";"2003";441
+" ";"2004";417
+" ";"2005";422
+" ";"2006";431
+" ";"2007";439
+" ";"2008";453
+" ";"2009";449
+" ";"2010";422
+" ";"2011";352
+" ";"2012";362
+" ";"2013";414
+" ";"2014";433
+" ";"2015";451
+"Število vseh osebnih avtomobilov v uporabi fiziènih oseb na 1.000 prebivalcev (število/1.000 prebivalcev)"
+" ";"2000";408
+" ";"2001";415
+" ";"2002";420
+" ";"2003";429
+" ";"2004";441
+" ";"2005";454
+" ";"2006";463
+" ";"2007";475
+" ";"2008";487
+" ";"2009";490
+" ";"2010";491
+" ";"2011";492
+" ";"2012";491
+" ";"2013";489
+" ";"2014";491
+" ";"2015";495
+"Potniški kilometri v cestnem javnem potniškem prometu (1.000 pkm)"
+" ";"2000";...
+" ";"2001";...
+" ";"2002";1142849
+" ";"2003";1065040
+" ";"2004";1000312
+" ";"2005";862015
+" ";"2006";850266
+" ";"2007";817116
+" ";"2008";814836
+" ";"2009";776737
+" ";"2010";578844
+" ";"2011";551544
+" ";"2012";533087
+" ";"2013";459487
+" ";"2014";476836
+" ";"2015";497685
+
+"Vir: Statistièni urad Republike Slovenije."
+
+"Podrobnejši podatki o konèni porabi energije so objavljeni na SI-STAT "
+"podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Okolje/18_energetika/01_1817-"
+"9_bilanca_kazalniki/01_18179_bilanca_kazalniki.asp TARGET=_blank)  "
+"Energetika – Energetska bilanca in energetski kazalniki."
+
+"Podrobnejši podatki o konèni porabi energije so objavljeni na SI-STAT "
+"podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Okolje/18_energetika/01_1817-"
+"9_bilanca_kazalniki/01_18179_bilanca_kazalniki.asp TARGET=_blank)  "
+"Energetika – Energetska bilanca in energetski kazalniki."
+
+"Vira: Statistièni urad Republike Slovenije, Ministrstvo za okolje in "
+"prostor. "
+" "
+"Podrobnejši podatki o vodi, dobavljeni iz javnega vodovoda so "
+"objavljeni na SI-STAT podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Okolje/27_okolje/03_27193_vo-"
+"da/01_27501_javni_vodovod/01_27501_javni_vodovod.asp TARGET=_blank)  "
+"Okolje – Voda – javni vodovod."
+
+"Vir: Ministrstvo za okolje in prostor, Agencija Republike Slovenije "
+"za okolje, preraèuni Statistièni urad Republike Slovenije. "
+" "
+"Od leta 2012 so zaradi spremembe metodologije podatki o nastalih "
+"kolièinah komunalnih odpadkov dopolnjeni s podatki o kolièinah "
+"komunalnih odpadkov, ki so bili zbrani mimo obvezne obèinske "
+"gospodarske javne službe zbiranja komunalnih odpadkov. Od leta 2013 "
+"pa so dodane še kolièine komunalnih odpadkov, ki so jih proizvajalci "
+"odpadkov zaèasno skladišèili ali izvozili v tujino. "
+" "
+"Podrobnejši podatki o komunalnih odpadkih so objavljeni na SI-STAT "
+"podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Okolje/27_okolje/02_Odpadki/-"
+"01_27061_odvoz_odpadkov/01_27061_odvoz_odpadkov.asp TARGET=_blank)  "
+"Okolje – Odpadki – Komunalni odpadki."
+
+"Na dan 31.12. "
+" "
+"Vira: Statistièni Urad Republike Slovenije, Ministrstvo za "
+"infrastrukturo. "
+" "
+"Podrobnejši podatki o registriranih cestnih vozilih so objavljeni na "
+"SI-STAT podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Ekonomsko/22_transport/08_22-"
+"221_reg_cestna_vozila/08_22221_reg_cestna_vozila.asp TARGET=_blank)  "
+"Transport – Registrirana cestna vozila."
+
+"Potniški kilometri (pkm) so seštevki zmnožkov števila potnikov in "
+"razdalj, na katerih so se ti potniki peljali. "
+" "
+"Mestni potniški promet ni vkljuèen. "
+" "
+"Zaradi razliène metodologije podatki od leta 2010 dalje niso "
+"neposredno primerljivi s predhodnimi. "
+" "
+"Podrobnejši podatki o cestnem potniškem prevozu so objavljeni na "
+"SI-STAT podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Ekonomsko/22_transport/02_22-"
+"212_cestni_transport/02_22214_potniski_prevoz/02_22214_potniski_prevoz"
+"asp TARGET=_blank)  Transport – Cestni transport – Cestni potniški "
+"prevoz"
+
