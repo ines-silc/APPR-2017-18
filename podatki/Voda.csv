@@ -1,0 +1,50 @@
+"Kakovost pitne vode po: KAZALNIK, OSKRBOVALNA OBMOÈJA , LETO"
+
+"Delež neskladnih vzorcev zaradi onesnaženosti pitne vode z E.coli (%)"
+" ";"Mala oskrbovalna obmoèja (50-1.000 prebivalcev)"
+" ";" ";"2004";29.0
+" ";" ";"2005";28.0
+" ";" ";"2006";24.1
+" ";" ";"2007";24.5
+" ";" ";"2008";24.6
+" ";" ";"2009";19.3
+" ";" ";"2010";18.9
+" ";" ";"2011";16.0
+" ";" ";"2012";12.3
+" ";" ";"2013";8.6
+" ";" ";"2014";7.9
+" ";" ";"2015";5.8
+" ";"Srednje velika oskrbovalna obmoèja (1.001-10.000 prebivalcev)"
+" ";" ";"2004";6.7
+" ";" ";"2005";5.8
+" ";" ";"2006";4.6
+" ";" ";"2007";5.3
+" ";" ";"2008";4.4
+" ";" ";"2009";4.3
+" ";" ";"2010";3.7
+" ";" ";"2011";1.0
+" ";" ";"2012";1.8
+" ";" ";"2013";1.3
+" ";" ";"2014";1.1
+" ";" ";"2015";1.1
+" ";"Velika oskrbovalna obmoèja (> 10.000 prebivalcev)"
+" ";" ";"2004";2.6
+" ";" ";"2005";1.7
+" ";" ";"2006";0.4
+" ";" ";"2007";2.1
+" ";" ";"2008";0.7
+" ";" ";"2009";1.2
+" ";" ";"2010";0.5
+" ";" ";"2011";0.8
+" ";" ";"2012";0.4
+" ";" ";"2013";0.4
+" ";" ";"2014";0.2
+" ";" ";"2015";0.2
+
+"Viri: Nacionalni inštitut za javno zdravje, Zavod za zdravstveno "
+"varstvo Maribor, Nacionalni laboratorij za zdravje, okolje in hrano."
+
+"Zaradi sprememb metodologije vzorèenja (zelo razlièno število vzorcev "
+"v posameznih letih) podatki za mala oskrbovana obmoèja za posamezna "
+"leta med seboj niso neposredno primerljivi."
+

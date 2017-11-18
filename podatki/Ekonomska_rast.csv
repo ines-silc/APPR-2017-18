@@ -1,0 +1,89 @@
+"Ekonomska rast po: KAZALNIK , LETO"
+
+"Realna rast BDP na prebivalca, 1995 = 100 (indeks)"
+" ";"2000";123.2
+" ";"2001";126.7
+" ";"2002";131.3
+" ";"2003";135.0
+" ";"2004";140.8
+" ";"2005";146.1
+" ";"2006";153.9
+" ";"2007";163.6
+" ";"2008";168.8
+" ";"2009";154.1
+" ";"2010";155.5
+" ";"2011";156.2
+" ";"2012";151.7
+" ";"2013";149.8
+" ";"2014";154.2
+" ";"2015";157.8
+"Povpreèni dohodek na èlana gospodinjstva (EUR)"
+" ";"2000";3903
+" ";"2001";4378
+" ";"2002";4856
+" ";"2003";5338
+" ";"2004";5790
+" ";"2005";6147
+" ";"2006";6466
+" ";"2007";7532
+" ";"2008";8199
+" ";"2009";8317
+" ";"2010";8482
+" ";"2011";8567
+" ";"2012";8413
+" ";"2013";8519
+" ";"2014";8746
+" ";"2015";...
+
+"Vir: Statistièni urad Republike Slovenije."
+
+"Podrobnejši podatki o bruto domaèem proizvodu so objavljeni na "
+"SI-STAT podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Ekonomsko/03_nacionalni_racu-"
+"ni/05_03019_BDP_letni/05_03019_BDP_letni.asp TARGET=_blank)  "
+"Nacionalni raèuni – Bruto domaèi proizvod, letni podatki."
+
+"V letu 2016 je bilo zamenjano ime kazalnika zaradi zamenjave "
+"podatkovnega vira in podatki od leta 2007 naprej (prelom v èasovni "
+"vrsti). "
+" "
+"Podatki za leta 2000–2006 predstavljajo razpoložljiva sredstva "
+"gospodinjstev (brez lastne proizvodnje in bonitet) na èlana "
+"gospodinjstva (EUR) iz raziskovanja Poraba v gospodinjstvih. "
+" "
+"Razpoložljiva sredstva gospodinjstev obsegajo vsa denarna sredstva, "
+"ki jih imajo gospodinjstva v opazovanem obdobju na razpolago. "
+" "
+"Podatki so preraèunani iz obdobja treh zaporednih let (npr. "
+"2005–2007) na srednje leto (npr. 2006) kot referenèno leto. "
+" "
+" "
+"Podatki od leta 2007 naprej predstavljajo povpreèni dohodek na èlana "
+"gospodinjstva (EUR) iz raziskovanja Življenjski pogoji (SILC).  "
+" "
+"Izraèuni temeljijo na letnem (neto) razpoložljivem dohodku "
+"gospodinjstva (brez dohodka v naravi). Denarni razpoložljivi dohodek "
+"gospodinjstva obsega neto dohodke vseh èlanov gospodinjstva (iz "
+"zaposlitve, vkljuèno z nadomestilom za prehrano in prevoz na delo, iz "
+"samozaposlitve, pokojnine, nadomestila za brezposelnost, nadomestila "
+"za bolniško odsotnost, štipendije, družinske in socialne prejemke, "
+"obresti, dividende, denarne transferje, prejete od drugih "
+"gospodinjstev), od katerih se odštejejo transferji, plaèani drugim "
+"gospodinjstvom, ter davek na premoženje, vkljuèno z nadomestilom za "
+"uporabo stavbnega zemljišèa. Tako izraèunanemu denarnemu dohodku se "
+"prišteje tudi del dohodka v naravi (boniteta za uporabo službenega "
+"avtomobila za zasebne namene in del vrednosti lastne proizvodnje "
+"samozaposlenih, tj. vrednost izdelkov, prenesenih v gospodinjstvo iz "
+"lastne delavnice, podjetja ali trgovine). "
+" "
+"Podatki so objavljeni za dohodkovno referenèno leto in ne za leto "
+"izvedbe raziskovanja. "
+" "
+" "
+"Podrobnejši podatki o dohodkih gospodinjstev so objavljeni na SI-STAT "
+"podatkovnem portalu v podroèju (seznam "
+"HREF=http://pxweb.stat.si/pxweb/Database/Dem_soc/08_zivljenjska_raven-"
+"/08_silc_kazalniki_revsc/15_08673_porazdel_dohodka/15_08673_porazdel_-"
+"dohodka.asp TARGET=_blank)  Življenjska raven – Kazalniki revšèine in "
+"socialne izkljuèenosti (SILC)  – Porazdelitev dohodka."
+
