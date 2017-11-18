@@ -4,7 +4,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kazalcev trajnostnega razvoja v Sloveniji: Varnost, ekonomska rast in kakovost naravnih virov
 
-V projektu bom analizirala kazalce družbene blaginje v Sloveniji s treh področji. Prvo področje je Varnost, tu so vključeni: kazalniki socialne zaščite (kjer se merijo izdatki za starost, invalidnost, brezposelnost...), stopnja brezposelnosti, število prebivalcev na enega zdravnika in delež obsojenih oseb. Drugo področje bo ekonomska rast, tu se bom osredotočila predvsem na podatke o rasti bruto domačega proizvoda na prebivalca ter dohodek. Tretje področje pa je kakovost naravnih virov kot so: zrak, pitna voda in delež ekološkega kmetijstva. 
+V projektu bom analizirala kazalce družbene blaginje v Sloveniji s treh področji. Prvo področje je Varnost, tu so vključeni: kazalniki socialne zaščite (kjer se merijo izdatki za starost, invalidnost, brezposelnost...), stopnja brezposelnosti, število prebivalcev na enega zdravnika in delež obsojenih oseb. Drugo področje bo ekonomska rast, tu se bom osredotočila predvsem na podatke o rasti bruto domačega proizvoda na prebivalca ter dohodek. Tretje področje pa je kakovost naravnih virov kot so: zrak, pitna voda in delež ekološkega kmetijstva. Prikazala bom tudi podatke o državnem dolgu in o vlaganju v raziskave in razvoj.
 
 Za vir podatkov bom uporabljala Statistični urad republike Slovenije
 
