@@ -2,7 +2,7 @@
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
-## Analiza kazalcev trajnostnega razvoja v Sloveniji: Varnost, ekonomska rast in kakovost naravnih virov
+## Analiza kazalcev trajnostnega razvoja in kakovost življenja v Sloveniji
 
 V projektu bom analizirala kazalce družbene blaginje v Sloveniji s treh področji. 
 
