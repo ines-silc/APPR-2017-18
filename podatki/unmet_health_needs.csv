@@ -1,0 +1,26 @@
+﻿Self-reported unmet needs for medical examination by sex, age, main reason declared and income quintile [hlth_silc_08];;;;;;;;;;;
+;;;;;;;;;;;
+Last update;31.10.17;;;;;;;;;;
+Extracted on;21.11.17;;;;;;;;;;
+Source of data;Eurostat;;;;;;;;;;
+;;;;;;;;;;;
+QUANTILE;Total;;;;;;;;;;
+AGE;Total;;;;;;;;;;
+SEX;Total;;;;;;;;;;
+UNIT;Percentage;;;;;;;;;;
+GEO;Slovenia;;;;;;;;;;
+;;;;;;;;;;;
+REASON/TIME;2005;2006;2007;2008;2009;2010;2011;2012;2013;2014;2015
+Too expensive;0,2;0,0;0,1;0,1;0,1;0,1;0,0;0,0;0,0;0,1;0,1
+Too far to travel;0,0;:;:;:;0,0;:;0,0;0,0;:;0,0;0,0
+Too expensive or too far to travel or waiting list;0,3;0,2;0,2;0,2;0,2;0,1;0,1;0,1;0,0;0,2;0,2
+No time;0,0;0,0;0,0;:;0,0;0,1;0,0;0,0;0,0;0,1;0,0
+No unmet needs to declare;99,5;99,7;99,7;99,6;99,7;99,7;99,7;99,6;99,8;99,6;99,6
+Didn't know any good doctor or specialist;:;:;:;0,0;:;:;:;0,0;0,0;0,0;0
+Waiting list;0,1;0,1;0,1;0,1;0,1;0,1;0,0;0,0;0,0;0,1;0,1
+Fear of doctor, hospital, examination or treatment;0,0;0,0;0,0;0,0;0,0;0,0;0,0;0,0;0,0;0,0;0,1
+Wanted to wait and see if problem got better on its own;0,1;0,0;0,1;0,0;0,1;0,1;0,1;0,1;0,0;0,0;0,0
+Other;0,1;0,0;0,0;0,1;0,1;0,0;0,0;0,1;0,1;0,1;0,1
+;;;;;;;;;;;
+Special value:;;;;;;;;;;;
+:;not available;;;;;;;;;;
