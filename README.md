@@ -16,7 +16,31 @@ Drugo  področje je Varnost, tu so vključeni:
 
 Tretje področje pa je zdravje. Tu se bom osredotočila na podatke o procentu ljudi, ki živi v slabih stanovanjskih razmerah, število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe ter navedla podatke o nezadovoljstvu ljudi z slovenskim zdravstvenim sistemom (tu se bom osredotočila predvsem na podatke, ki so dostopni na Eurostatu, pod podatki zakaj ljudje niso prišli do želenega zdravljenja).
 
-Za vir podatkov bom uporabljala Statistični urad republike Slovenije in Eurostat
+Cilj: poskušala bom najti povezave med gospodarsko rastjo in izdatkov za zdravstvo in povezave med brezposelnostjo in številom obsojenih ljudi ter dostopom do zdravstvene oskrbe v Sloveniji.
+
+Za vir podatkov bom uporabljala Statistični urad republike Slovenije (dostopno na povezavi: http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp v obliki .csv), Eurostat (http://ec.europa.eu/eurostat/data/database v obliki .csv) in Wikipedijo (https://sl.wikipedia.org/wiki/Pri%C4%8Dakovana_%C5%BEivljenjska_doba v obliki .html)
+
+## Podatki v tabelah
+
+*Tabela 1* bo prikazovala v obdobju 2000-2014 podatke o:
+* Bruto domačem proizvodu
+* Dohodku
+* Izdatkih za zdravstveno varstvo
+* Izdatkih za invalidnost
+* Izdatkih za smrt hranitelja
+* Izdatkih za starost
+* Izdatkih za družino
+* Izdatkih za brezposelnost
+* Izdatkih za nastanitev
+
+*Tabela 2* bo prikazovala regijske podatke o:
+* Brezposelnosti
+* Številu prebivalcev na enega zdravnika
+* Deležu obsojenih ljudi
+
+*Tabela 3* bo prikazovala v obdobju 2005-2015 ločeno po spolih podatke o:
+* Življenjski dobi
+* Številu zdravih let
 
 ## Program
 
