@@ -22,7 +22,8 @@ Za vir podatkov bom uporabljala Statistični urad republike Slovenije (dostopno 
 
 ## Podatki v tabelah
 
-*Tabela 1* bo prikazovala v obdobju 2000-2014 podatke o:
+*Tabela 1*:
+* Leto (2000-2014)
 * Bruto domačem proizvodu
 * Dohodku
 * Izdatkih za zdravstveno varstvo
@@ -33,12 +34,14 @@ Za vir podatkov bom uporabljala Statistični urad republike Slovenije (dostopno 
 * Izdatkih za brezposelnost
 * Izdatkih za nastanitev
 
-*Tabela 2* bo prikazovala regijske podatke o:
+*Tabela 2*:
+* Leto
 * Brezposelnosti
 * Številu prebivalcev na enega zdravnika
 * Deležu obsojenih ljudi
 
-*Tabela 3* bo prikazovala v obdobju 2005-2015 ločeno po spolih podatke o:
+*Tabela 3*:
+* Leto (2005-2015)
 * Življenjski dobi
 * Številu zdravih let
 
