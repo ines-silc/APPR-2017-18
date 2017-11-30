@@ -29,8 +29,9 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 # Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvozi.podatke <- function() {
-  data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Ekonomska_rast.csv", col_names = c("meritev", "leto", "rast"),
-                    locale = locale(encoding = "Windows-1250"), skip = 1)
+  data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Ekonomska_rast.csv", 
+                    col_names = c("leto", "rast (index 1995)", "dohodek"),
+                    locale = locale(encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
   #data$obcina <- data$obcina %>% strapplyc("^([^/]*)") %>% unlist() %>%
     #strapplyc("([^ ]+)") %>% sapply(paste, collapse = " ") %>% unlist()
   #data$obcina[data$obcina == "Sveti Jurij"] <- "Sveti Jurij ob Ščavnici"
