@@ -28,7 +28,7 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 #}
 
 # Funkcija, ki uvozi podatke iz datoteke druzine.csv
-uvozi.podatke <- function() {
+uvozi.bdp <- function() {
   data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Ekonomska_rast.csv", 
                     col_names = c("leto", "rast (index 1995)", "dohodek"),
                     locale = locale(encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
@@ -42,8 +42,12 @@ uvozi.podatke <- function() {
   #return(data)
 }
 
+uvozi.izdatke <- function() 
+  data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Socialna_zascita.csv",
+                    locale = locale(encoding = "Windows-1250"), n_max = 11)
 # Zapišimo podatke v razpredelnico obcine
-rast <- uvozi.podatke()
+rast <- uvozi.bdp()
+izdatki <- uvozi.izdatke()
 
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine(levels(obcine$obcina))
