@@ -24,26 +24,26 @@ Za vir podatkov bom uporabljala Statistični urad republike Slovenije (dostopno 
 
 *Tabela 1*:
 * Leto (2000-2014)
-* Bruto domačem proizvodu
-* Dohodku
-* Izdatkih za zdravstveno varstvo
-* Izdatkih za invalidnost
-* Izdatkih za smrt hranitelja
-* Izdatkih za starost
-* Izdatkih za družino
-* Izdatkih za brezposelnost
-* Izdatkih za nastanitev
+* Bruto domači proizvod
+* Dohodek
+* Izdatki za zdravstveno varstvo
+* Izdatki za invalidnost
+* Izdatki za smrt hranitelja
+* Izdatki za starost
+* Izdatki za družino
+* Izdatki za brezposelnost
+* Izdatki za nastanitev
 
 *Tabela 2*:
 * Leto
-* Brezposelnosti
-* Številu prebivalcev na enega zdravnika
-* Deležu obsojenih ljudi
+* Brezposelnost
+* Število prebivalcev na enega zdravnika
+* Delež obsojenih ljudi
 
 *Tabela 3*:
 * Leto (2005-2015)
-* Življenjski dobi
-* Številu zdravih let
+* Življenjska doba
+* Število zdravih let
 
 ## Program
 
