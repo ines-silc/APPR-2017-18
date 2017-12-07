@@ -49,17 +49,20 @@ uvozi.izdatke <- function() {
                                   "Izdatki za nastanitev", "drugo"), 
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 10, na = "...")
 }
-# Zapišimo podatke v razpredelnico obcine
-rast <- uvozi.bdp()
-izdatki <- uvozi.izdatke()
-tabela1 <- inner_join(rast, izdatki, by = "leto" )
+tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
+
 
 uvozi.kazalnike <- function(){
   data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Kazalniki_varnosti.csv", 
-                    col_names = c("leto", "regija", "1", "2", "3"),
-                    locale = locale(encoding = "Windows-1250"), skip = 1, n_max = 145)
+                    col_names = c("leto", "regija", "stopnja brezposelnosti",
+                                  "št. prebivalcev na 1 zdravnika", "delež obsojenih ljudi"),
+                    locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 132, na = "...")
+  
 }
-kazalniki <- uvozi.kazalnike()
+tabela2 <- uvozi.kazalnike()
+
+
+
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine(levels(obcine$obcina))
 
