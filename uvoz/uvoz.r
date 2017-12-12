@@ -10,7 +10,7 @@ uvozi.doba <- function() {
 zivljenjska.doba <- uvozi.doba()
 
 uvozi.bdp <- function() {
-  data <- read_csv2("C:\Users\Ines Šilc\Documents\APPR-2017-18\podatki\Ekonomska_rast.csv",
+  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/Ekonomska_rast.csv",
   #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Ekonomska_rast.csv", 
                     col_names = c("leto", "rast (index 1995)", "dohodek"),
                     locale = locale(encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
@@ -18,7 +18,7 @@ uvozi.bdp <- function() {
 }
 
 uvozi.izdatke <- function() {
-  data <- read_csv2("C:\Users\Ines Šilc\Documents\APPR-2017-18\podatki\Socialna_zascita.csv",
+  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/Socialna_zascita.csv",
   #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Socialna_zascita.csv",
                     col_names = c("leto", "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
                                   "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", "Izdatki za brezposelnost",
@@ -30,7 +30,7 @@ tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
 
 
 uvozi.kazalnike <- function(){
-  data <- read_csv2("C:\Users\Ines Šilc\Documents\APPR-2017-18\podatki\Kazalniki_varnosti.csv",
+  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/Kazalniki_varnosti.csv",
   #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Kazalniki_varnosti.csv", 
                     col_names = c("leto", "regija", "stopnja brezposelnosti",
                                   "št. prebivalcev na 1 zdravnika", "delež obsojenih ljudi"),
