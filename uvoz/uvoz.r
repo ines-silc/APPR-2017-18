@@ -1,64 +1,43 @@
 # 2. faza: Uvoz podatkov
 
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
+library(XML)
+uvozi.doba <- function() {
+  data <- read_html("file:///C:/Users/Ines%20%C5%A0ilc/Documents/APPR-2017-18/podatki/zivljenjska_doba.html")
+  colnames(tabela) <- c("1", "2")
+  return(tabela)
+}
+zivljenjska.doba <- uvozi.doba()
 
-# Funkcija, ki uvozi občine iz Wikipedije
-#uvozi.doba <- function() {
-  #link <- "https://sl.wikipedia.org/wiki/Pri%C4%8Dakovana_%C5%BEivljenjska_doba"
-  #stran <- html_session(link) %>% read_html()
-  #tabela <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
-    #.[[1]] %>% html_table(dec = ",")
-  #for (i in 1:ncol(tabela)) {
-    #if (is.character(tabela[[i]])) {
-      #Encoding(tabela[[i]]) <- "UTF-8"
-    #}
-  #}
-  #colnames(tabela) <- c("obcina", "povrsina", "prebivalci", "gostota", "naselja",
-                        #"ustanovitev", "pokrajina", "regija", "odcepitev")
-  #tabela$obcina <- gsub("Slovenskih", "Slov.", tabela$obcina)
-  #tabela$obcina[tabela$obcina == "Kanal ob Soči"] <- "Kanal"
-  #tabela$obcina[tabela$obcina == "Loški potok"] <- "Loški Potok"
-  #for (col in c("povrsina", "prebivalci", "gostota", "naselja", "ustanovitev")) {
-    #tabela[[col]] <- parse_number(tabela[[col]], na = "-", locale = sl)
-  #}
-  #for (col in c("obcina", "pokrajina", "regija")) {
-    #tabela[[col]] <- factor(tabela[[col]])
-  #}
-  #return(tabela)
-#}
-
-# Funkcija, ki uvozi podatke iz datoteke druzine.csv
 uvozi.bdp <- function() {
-  data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Ekonomska_rast.csv", 
+  data <- read_csv2("C:\Users\Ines Šilc\Documents\APPR-2017-18\podatki\Ekonomska_rast.csv",
+  #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Ekonomska_rast.csv", 
                     col_names = c("leto", "rast (index 1995)", "dohodek"),
                     locale = locale(encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
-  #data$obcina <- data$obcina %>% strapplyc("^([^/]*)") %>% unlist() %>%
-    #strapplyc("([^ ]+)") %>% sapply(paste, collapse = " ") %>% unlist()
-  #data$obcina[data$obcina == "Sveti Jurij"] <- "Sveti Jurij ob Ščavnici"
-  #data <- data %>% melt(id.vars = "obcina", variable.name = "velikost.druzine",
-                        #value.name = "stevilo.druzin")
-  #data$velikost.druzine <- parse_number(data$velikost.druzine)
-  #data$obcina <- factor(data$obcina, levels = obcine)
-  #return(data)
+  return(data)
 }
 
 uvozi.izdatke <- function() {
-  data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Socialna_zascita.csv",
+  data <- read_csv2("C:\Users\Ines Šilc\Documents\APPR-2017-18\podatki\Socialna_zascita.csv",
+  #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Socialna_zascita.csv",
                     col_names = c("leto", "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
                                   "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", "Izdatki za brezposelnost",
                                   "Izdatki za nastanitev", "drugo"), 
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 10, na = "...")
-}
+  return(data)
+  }
 tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
 
 
 uvozi.kazalnike <- function(){
-  data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Kazalniki_varnosti.csv", 
+  data <- read_csv2("C:\Users\Ines Šilc\Documents\APPR-2017-18\podatki\Kazalniki_varnosti.csv",
+  #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Kazalniki_varnosti.csv", 
                     col_names = c("leto", "regija", "stopnja brezposelnosti",
                                   "št. prebivalcev na 1 zdravnika", "delež obsojenih ljudi"),
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 132, na = "...")
   
-}
+  return(data)
+  }
 tabela2 <- uvozi.kazalnike()
 
 
