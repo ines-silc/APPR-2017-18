@@ -52,15 +52,12 @@ uvozi.zdrava.leta <- function(){
 zdrava.leta <- uvozi.zdrava.leta()
 
 uvozi.naravne.vire <- function(){
-  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/naravni_viri.csv",
+  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/naravni_viri.csv",
                     col_names = c("leto", "regija", "poraba vode", "odpadki", "št. avtomobilov/1000"), 
-                    locale = locale(encoding = "Windows-1250"))
+                    locale = locale(encoding = "UTF-8"), skip = 3, n_max = 143)
   return(data)
 }
-tabela4 <- uvozi.naravne.vire()
-
-# Zapišimo podatke v razpredelnico druzine.
-#druzine <- uvozi.druzine(levels(obcine$obcina))
+tabela4 <- uvozi.naravne.vire() %>% fill(1)
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo

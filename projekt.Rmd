@@ -21,17 +21,15 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Analiza kazalcev trajnostnega razvoja in kakovost življenja v Sloveniji
 
-V projektu bom analizirala kazalce družbene blaginje v Sloveniji s treh področji.
+V projektu bom analizirala kazalce družbene blaginje v Sloveniji s štirih področji.
 
 Prvo področje bo splošna ekonomska rast, tu se bom osredotočila predvsem na podatke o rasti bruto domačega proizvoda na prebivalca ter dohodek, pričakovana življenjska doba in izraba naravnih virov.
 
-Drugo področje je Varnost, tu so vključeni:
+Drugo področje je Varnost, tu so vključeni:, kazalniki socialne zaščite (kjer se merijo izdatki za starost, invalidnost, brezposelnost...), stopnja brezposelnosti, število prebivalcev na enega zdravnika in delež obsojenih oseb.
 
-kazalniki socialne zaščite (kjer se merijo izdatki za starost, invalidnost, brezposelnost...)
-stopnja brezposelnosti
-število prebivalcev na enega zdravnika in
-delež obsojenih oseb.
-Tretje področje pa je zdravje. Tu se bom osredotočila na podatke o procentu ljudi, ki živi v slabih stanovanjskih razmerah, število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe ter navedla podatke o nezadovoljstvu ljudi z slovenskim zdravstvenim sistemom (tu se bom osredotočila predvsem na podatke, ki so dostopni na Eurostatu, pod podatki zakaj ljudje niso prišli do želenega zdravljenja).
+Tretje področje je zdravje. Tu se bom osredotočila na podatke o procentu ljudi, ki živi v slabih stanovanjskih razmerah, število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe ter navedla podatke o nezadovoljstvu ljudi z slovenskim zdravstvenim sistemom (tu se bom osredotočila predvsem na podatke, ki so dostopni na Eurostatu, pod podatki zakaj ljudje niso prišli do želenega zdravljenja).
+
+V zadnjem področju bom raziskovala porabo vode, odpadkov in avtomobilov po regijah.
 
 Cilj: poskušala bom najti povezave med gospodarsko rastjo in izdatkov za zdravstvo in povezave med brezposelnostjo in številom obsojenih ljudi ter dostopom do zdravstvene oskrbe v Sloveniji.
 
@@ -41,24 +39,38 @@ Cilj: poskušala bom najti povezave med gospodarsko rastjo in izdatkov za zdravs
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Uvozila sem podatke o občinah v obliki CSV s statističnega urada in Eurostata, ter v obliki HTML
+z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
-
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
+1.`Leto` -spremenljivka: leto, katerega so bile narejene meritve
+ - `Bruto domači proizvod` - meritev: rast bruto domačega proizvoda (število)
+ - `Dohodek` - meritev: povprečni dohodek na člana gospodinjstva (število)
+ - `Izdatki za zdravstveno varstvo` - meritev: delež dohodka, ki se nameni za zdravstveno varstvo
+ - `Izdatki za invalidnost` - meritev: delež dohodka, ki se nameni za invalidnost
+ - `Izdatki za smrt hranitelja` - meritev: delež dohodka, ki se nameni za smrt hranitelja
+ - `Izdatki za starost` - meritev: delež dohodka, ki se nameni za starost
+ - `Izdatki za družino` - meritev: delež dohodka, ki se nameni za družino
+ - `Izdatki za brezposelnost` - meritev: delež dohodka, ki se nameni za brezposelnost
+ - `Izdatki za nastanitev` - meritev: delež dohodka, ki se nameni za nastanitev
+ 
+2.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
+ - `regija` - spremenljivka: regija, v kateri so bile narejene meritve
+ - `Brezposelnost` - meritev: povprečna stopnja brezposelnosti
+ - `Število prebivalcev na enega zdravnika` - meritev: število prebivalcev na enega zdravnika
+ - `Delež obsojenih ljudi` - meritev: Delež obsojenih oseb med prebivalci regije po regiji stalnega     prebivališča
+ 
+3. `Leto` - spremenljivka: leto, katerega so bile narejene meritve
+ `Življenjska doba` - meritev: povprečna življenjska doba
+ `Število zdravih let žensk pri rojstvu` - meritev: pričakovano število zdravih let žensk pri     rojstvu
+ `Število zdravih let žensk` - meritev: pričakovano število zdravih let žensk skozi celotno       življenje
+ `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri rojstvu
+ `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno življenje
+ 
+4. `Leto`- spremenljivka: leto, katerega so bile narejene meritve
+ -`Regija`- spremenljivka: regija, v kateri so bile narejene meritve
+ -`Poraba vode, dobavljene iz javnega vodovoda` - meritev: Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)
+ - `Komunalni odpadki` - meritev: Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)
+ - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
 
 **Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
 

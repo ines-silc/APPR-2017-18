@@ -4,7 +4,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza kazalcev trajnostnega razvoja in kakovost življenja v Sloveniji
 
-V projektu bom analizirala kazalce družbene blaginje v Sloveniji s treh področji. 
+V projektu bom analizirala kazalce družbene blaginje v Sloveniji s štirih področji. 
 
 Prvo področje bo splošna ekonomska rast, tu se bom osredotočila predvsem na podatke o rasti bruto domačega proizvoda na prebivalca ter dohodek, pričakovana življenjska doba in izraba naravnih virov.
 
@@ -14,7 +14,9 @@ Drugo  področje je Varnost, tu so vključeni:
 * število prebivalcev na enega zdravnika in 
 * delež obsojenih oseb. 
 
-Tretje področje pa je zdravje. Tu se bom osredotočila na podatke o procentu ljudi, ki živi v slabih stanovanjskih razmerah, število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe ter navedla podatke o nezadovoljstvu ljudi z slovenskim zdravstvenim sistemom (tu se bom osredotočila predvsem na podatke, ki so dostopni na Eurostatu, pod podatki zakaj ljudje niso prišli do želenega zdravljenja).
+Tretje področje je zdravje. Tu se bom osredotočila na podatke o procentu ljudi, ki živi v slabih stanovanjskih razmerah, število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe ter navedla podatke o nezadovoljstvu ljudi z slovenskim zdravstvenim sistemom (tu se bom osredotočila predvsem na podatke, ki so dostopni na Eurostatu, pod podatki zakaj ljudje niso prišli do želenega zdravljenja).
+
+V zadnjem področju bom raziskovala porabo vode, odpadkov in avtomobilov po regijah.
 
 Cilj: poskušala bom najti povezave med gospodarsko rastjo in izdatki za zdravstvo in povezave med brezposelnostjo in številom obsojenih ljudi ter dostopom do zdravstvene oskrbe v Sloveniji.
 
@@ -43,7 +45,17 @@ Za vir podatkov bom uporabljala Statistični urad republike Slovenije (dostopno 
 *Tabela 3*:
 * Leto (2005-2015)
 * Življenjska doba
-* Število zdravih let
+* Število zdravih let žensk pri rojstvu
+* Število zdravih let žensk
+* Število zdravih let moških pri rojstvu
+* Število zdravih let moških
+
+*Tabela 4*:
+* Leto
+* Regija
+* Poraba vode, dobavljene iz javnega vodovoda
+* Komunalni odpadki
+* Število vseh osebnih avtomobilov na 1.000 prebivalcev
 
 ## Program
 
