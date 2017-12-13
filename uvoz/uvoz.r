@@ -40,8 +40,13 @@ uvozi.kazalnike <- function(){
   }
 tabela2 <- uvozi.kazalnike()
 
-
-
+uvozi.zdrava.leta <- function(){
+  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/zdrava_leta.csv",
+                    col_names = c("leto", "ZLBF", "ZLF", "ZLBM", "ZLM"), 
+                    locale = locale(encoding = "Windows-1250"))
+  return(data)
+}
+tabela3 <- uvozi.zdrava.leta()
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine(levels(obcine$obcina))
 
