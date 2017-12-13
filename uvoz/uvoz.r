@@ -33,20 +33,32 @@ uvozi.kazalnike <- function(){
   data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/Kazalniki_varnosti.csv",
   #data <- read_csv2("U:/Šilc Ines/APPR-2017-18/podatki/Kazalniki_varnosti.csv", 
                     col_names = c("leto", "regija", "stopnja brezposelnosti",
-                                  "št. prebivalcev na 1 zdravnika", "delež obsojenih ljudi"),
+                                  "prebivalci na zdravnika", "delež obsojenih ljudi"),
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 132, na = "...")
-  
   return(data)
-  }
-tabela2 <- uvozi.kazalnike()
+}
+library(tidyr)
+tabela2 <- uvozi.kazalnike() %>% fill(1:5)
+
+
 
 uvozi.zdrava.leta <- function(){
-  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/zdrava_leta.csv",
-                    col_names = c("leto", "ZLBF", "ZLF", "ZLBM", "ZLM"), 
+  data <- read_csv("C:/Users/Ines Šilc/Documents/APPR-2017-18/podatki/zdrava_leta.csv",
+                    col_names = c("leto", "Zdrava leta pri rojstvu Ženske", "Zdrava leta Ženske",
+                                  "Zdrava leta pri rojstvi Moški", "Zdrava leta Moški"), 
+                    locale = locale(encoding = "Windows-1250"), skip = 10, n_max = 11)
+  return(data)
+}
+zdrava.leta <- uvozi.zdrava.leta()
+
+uvozi.naravne.vire <- function(){
+  data <- read_csv2("C:/Users/Ines Šilc/Documents/APPR-2017-18/naravni_viri.csv",
+                    col_names = c("leto", "regija", "poraba vode", "odpadki", "št. avtomobilov/1000"), 
                     locale = locale(encoding = "Windows-1250"))
   return(data)
 }
-tabela3 <- uvozi.zdrava.leta()
+tabela4 <- uvozi.naravne.vire()
+
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine(levels(obcine$obcina))
 

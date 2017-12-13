@@ -1,170 +1,192 @@
-"Naravni viri po: KAZALNIK , LETO"
+Ôªø"Naravni viri po: LETO, STATISTIƒåNA REGIJA , KAZALNIK"
 
-"KonËna poraba energije na prebivalca (toe/prebivalca)"
-" ";"2000";2.3
-" ";"2001";2.4
-" ";"2002";2.3
-" ";"2003";2.5
-" ";"2004";2.5
-" ";"2005";2.5
-" ";"2006";2.6
-" ";"2007";2.5
-" ";"2008";2.7
-" ";"2009";2.5
-" ";"2010";2.5
-" ";"2011";2.5
-" ";"2012";2.4
-" ";"2013";2.4
-" ";"2014";2.3
-" ";"2015";2.3
-"Deleû obnovljivih virov energije v konËni porabi energije (%)"
-" ";"2000";9.5
-" ";"2001";9.1
-" ";"2002";8.5
-" ";"2003";8.9
-" ";"2004";8.8
-" ";"2005";8.9
-" ";"2006";8.5
-" ";"2007";8.5
-" ";"2008";8.1
-" ";"2009";12.5
-" ";"2010";13.3
-" ";"2011";13.2
-" ";"2012";13.3
-" ";"2013";14.5
-" ";"2014";13.3
-" ";"2015";13.8
-"Poraba vode iz javnega vodovoda v gospodinjstvih na prebivalca (m3/prebivalca)"
-" ";"2000";...
-" ";"2001";...
-" ";"2002";44.4
-" ";"2003";46.1
-" ";"2004";43.4
-" ";"2005";42.4
-" ";"2006";43.0
-" ";"2007";43.8
-" ";"2008";44.0
-" ";"2009";41.8
-" ";"2010";41.2
-" ";"2011";40.7
-" ";"2012";41.3
-" ";"2013";38.2
-" ";"2014";38.1
-" ";"2015";38.1
-"KoliËina nastalih komunalnih odpadkov na prebivalca (kg/prebivalca)"
-" ";"2000";...
-" ";"2001";...
-" ";"2002";426
-" ";"2003";441
-" ";"2004";417
-" ";"2005";422
-" ";"2006";431
-" ";"2007";439
-" ";"2008";453
-" ";"2009";449
-" ";"2010";422
-" ";"2011";352
-" ";"2012";362
-" ";"2013";414
-" ";"2014";433
-" ";"2015";451
-"ätevilo vseh osebnih avtomobilov v uporabi fiziËnih oseb na 1.000 prebivalcev (ötevilo/1.000 prebivalcev)"
-" ";"2000";408
-" ";"2001";415
-" ";"2002";420
-" ";"2003";429
-" ";"2004";441
-" ";"2005";454
-" ";"2006";463
-" ";"2007";475
-" ";"2008";487
-" ";"2009";490
-" ";"2010";491
-" ";"2011";492
-" ";"2012";491
-" ";"2013";489
-" ";"2014";491
-" ";"2015";495
-"Potniöki kilometri v cestnem javnem potniökem prometu (1.000 pkm)"
-" ";"2000";...
-" ";"2001";...
-" ";"2002";1142849
-" ";"2003";1065040
-" ";"2004";1000312
-" ";"2005";862015
-" ";"2006";850266
-" ";"2007";817116
-" ";"2008";814836
-" ";"2009";776737
-" ";"2010";578844
-" ";"2011";551544
-" ";"2012";533087
-" ";"2013";459487
-" ";"2014";476836
-" ";"2015";497685
+" ";" ";"Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)";"Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)";"≈†tevilo vseh osebnih avtomobilov na 1.000 prebivalcev (≈°tevilo/1.000 prebivalcev)"
+"2005"
+" ";"Pomurska";26.5;260;432
+" ";"Podravska";37.8;412;452
+" ";"Koro≈°ka";30.1;359;445
+" ";"Savinjska";40.8;392;458
+" ";"Zasavska";35.4;347;422
+" ";"Posavska";37.9;375;465
+" ";"Jugovzhodna Slovenija";39.0;304;464
+" ";"Osrednjeslovenska";51.7;426;508
+" ";"Gorenjska";50.4;408;479
+" ";"Primorsko-notranjska";35.4;422;496
+" ";"Gori≈°ka";41.9;467;536
+" ";"Obalno-kra≈°ka";43.6;492;541
+"2006"
+" ";"Pomurska";27.0;289;442
+" ";"Podravska";38.7;444;462
+" ";"Koro≈°ka";30.6;369;455
+" ";"Savinjska";41.5;376;467
+" ";"Zasavska";34.7;381;430
+" ";"Posavska";38.1;392;475
+" ";"Jugovzhodna Slovenija";35.7;349;470
+" ";"Osrednjeslovenska";53.2;439;514
+" ";"Gorenjska";50.3;424;486
+" ";"Primorsko-notranjska";34.9;410;506
+" ";"Gori≈°ka";43.0;495;545
+" ";"Obalno-kra≈°ka";44.9;483;549
+"2007"
+" ";"Pomurska";29.4;446;457
+" ";"Podravska";34.2;401;476
+" ";"Koro≈°ka";29.0;376;467
+" ";"Savinjska";53.6;395;481
+" ";"Zasavska";34.7;405;445
+" ";"Posavska";34.6;413;489
+" ";"Jugovzhodna Slovenija";39.0;349;483
+" ";"Osrednjeslovenska";52.8;430;527
+" ";"Gorenjska";48.8;430;498
+" ";"Primorsko-notranjska";36.6;420;518
+" ";"Gori≈°ka";51.0;499;556
+" ";"Obalno-kra≈°ka";35.2;478;558
+"2008"
+" ";"Pomurska";37.0;405;478
+" ";"Podravska";45.0;385;489
+" ";"Koro≈°ka";32.0;361;488
+" ";"Savinjska";43.0;408;502
+" ";"Zasavska";35.0;401;463
+" ";"Posavska";20.0;397;510
+" ";"Jugovzhodna Slovenija";39.0;357;502
+" ";"Osrednjeslovenska";52.0;438;529
+" ";"Gorenjska";50.0;415;512
+" ";"Primorsko-notranjska";34.0;441;537
+" ";"Gori≈°ka";43.0;481;577
+" ";"Obalno-kra≈°ka";42.0;478;570
+"2009"
+" ";"Pomurska";29.4;397;484
+" ";"Podravska";37.6;396;494
+" ";"Koro≈°ka";30.8;348;490
+" ";"Savinjska";40.0;362;506
+" ";"Zasavska";34.2;362;468
+" ";"Posavska";33.8;402;518
+" ";"Jugovzhodna Slovenija";38.0;336;506
+" ";"Osrednjeslovenska";50.7;444;528
+" ";"Gorenjska";50.0;430;517
+" ";"Primorsko-notranjska";37.7;209;542
+" ";"Gori≈°ka";42.7;474;581
+" ";"Obalno-kra≈°ka";36.1;460;569
+"2010"
+" ";"Pomurska";27.0;313;490
+" ";"Podravska";36.0;387;494
+" ";"Koro≈°ka";30.4;342;494
+" ";"Savinjska";36.5;371;510
+" ";"Zasavska";34.0;374;469
+" ";"Posavska";33.3;402;521
+" ";"Jugovzhodna Slovenija";32.6;341;510
+" ";"Osrednjeslovenska";57.0;419;524
+" ";"Gorenjska";41.6;357;518
+" ";"Primorsko-notranjska";37.1;351;545
+" ";"Gori≈°ka";36.9;158;580
+" ";"Obalno-kra≈°ka";39.7;463;569
+"2011"
+" ";"Pomurska";29.5;285;496
+" ";"Podravska";35.9;328;496
+" ";"Koro≈°ka";30.3;318;500
+" ";"Savinjska";42.2;336;513
+" ";"Zasavska";33.5;338;468
+" ";"Posavska";34.4;382;525
+" ";"Jugovzhodna Slovenija";38.6;303;515
+" ";"Osrednjeslovenska";47.6;398;521
+" ";"Gorenjska";43.2;313;518
+" ";"Primorsko-notranjska";38.0;313;550
+" ";"Gori≈°ka";42.2;411;580
+" ";"Obalno-kra≈°ka";40.9;401;568
+"2012"
+" ";"Pomurska";29.4;271;501
+" ";"Podravska";35.3;316;497
+" ";"Koro≈°ka";22.9;266;503
+" ";"Savinjska";47.1;296;513
+" ";"Zasavska";30.2;323;470
+" ";"Posavska";31.2;310;525
+" ";"Jugovzhodna Slovenija";40.0;270;517
+" ";"Osrednjeslovenska";42.9;375;516
+" ";"Gorenjska";51.2;302;517
+" ";"Primorsko-notranjska";42.7;296;555
+" ";"Gori≈°ka";47.2;378;577
+" ";"Obalno-kra≈°ka";49.0;386;563
+"2013"
+" ";"Pomurska";28.8;278;504
+" ";"Podravska";39.4;312;496
+" ";"Koro≈°ka";29.1;233;507
+" ";"Savinjska";42.8;288;512
+" ";"Zasavska";35.0;312;469
+" ";"Posavska";31.7;322;529
+" ";"Jugovzhodna Slovenija";29.5;266;517
+" ";"Osrednjeslovenska";36.8;366;510
+" ";"Gorenjska";48.4;299;516
+" ";"Primorsko-notranjska";39.3;297;553
+" ";"Gori≈°ka";52.1;355;577
+" ";"Obalno-kra≈°ka";28.8;384;558
+"2014"
+" ";"Pomurska";29.3;289;509
+" ";"Podravska";35.4;321;500
+" ";"Koro≈°ka";31.2;240;511
+" ";"Savinjska";39.2;291;526
+" ";"Zasavska";26.1;337;349
+" ";"Posavska";32.9;325;493
+" ";"Jugovzhodna Slovenija";33.6;271;523
+" ";"Osrednjeslovenska";40.6;350;522
+" ";"Gorenjska";40.9;317;518
+" ";"Primorsko-notranjska";33.6;327;555
+" ";"Gori≈°ka";51.8;357;579
+" ";"Obalno-kra≈°ka";41.5;394;559
+"2015"
+" ";"Pomurska";29.8;288;513
+" ";"Podravska";35.6;303;508
+" ";"Koro≈°ka";29.8;247;513
+" ";"Savinjska";40.6;297;515
+" ";"Zasavska";19.0;235;482
+" ";"Posavska";23.2;338;536
+" ";"Jugovzhodna Slovenija";35.1;269;527
+" ";"Osrednjeslovenska";41.7;355;517
+" ";"Gorenjska";51.3;297;521
+" ";"Primorsko-notranjska";35.5;313;558
+" ";"Gori≈°ka";40.5;345;580
+" ";"Obalno-kra≈°ka";33.8;359;561
 
-"Vir: StatistiËni urad Republike Slovenije."
+"Vir: Statistiƒçni urad Republike Slovenije."
 
-"Podrobnejöi podatki o konËni porabi energije so objavljeni na SI-STAT "
-"podatkovnem portalu v podroËju (seznam "
-"HREF=http://pxweb.stat.si/pxweb/Database/Okolje/18_energetika/01_1817-"
-"9_bilanca_kazalniki/01_18179_bilanca_kazalniki.asp TARGET=_blank)  "
-"Energetika ñ Energetska bilanca in energetski kazalniki."
+"Podatki so teritorialno razvr≈°ƒçeni po Klasifikaciji statistiƒçnih "
+"teritorialnih enot v Evropski uniji (The Classification  of "
+"Territorial Units for Statistics) ‚Äì NUTS ((seznam "
+"HREF=../database/Meta/Klas/NUTS.htm TARGET=_blank) opis in "
+"pojasnila), raven NUTS 3. Opombe o spremembah posameznih regij so "
+"zapisane k vsaki spremenjeni regiji in so ob izpisu tabele na zaslon "
+"dostopne s klikom na ikono za opombe (zvezdica). V opombah je na "
+"zaƒçetku naveden datum, s katerim je opisana teritorialna sprememba "
+"upo≈°tevana pri teritorialnem razvr≈°ƒçanju enot za statistiƒçne namene."
 
-"Podrobnejöi podatki o konËni porabi energije so objavljeni na SI-STAT "
-"podatkovnem portalu v podroËju (seznam "
-"HREF=http://pxweb.stat.si/pxweb/Database/Okolje/18_energetika/01_1817-"
-"9_bilanca_kazalniki/01_18179_bilanca_kazalniki.asp TARGET=_blank)  "
-"Energetika ñ Energetska bilanca in energetski kazalniki."
-
-"Vira: StatistiËni urad Republike Slovenije, Ministrstvo za okolje in "
+"Vira: Statistiƒçni urad Republike Slovenije, Ministrstvo za okolje in "
 "prostor. "
 " "
-"Podrobnejöi podatki o vodi, dobavljeni iz javnega vodovoda so "
-"objavljeni na SI-STAT podatkovnem portalu v podroËju (seznam "
+"Podrobnej≈°i podatki o vodi, dobavljeni iz javnega vodovoda so "
+"objavljeni na SI-STAT podatkovnem portalu v podroƒçju (seznam "
 "HREF=http://pxweb.stat.si/pxweb/Database/Okolje/27_okolje/03_27193_vo-"
 "da/01_27501_javni_vodovod/01_27501_javni_vodovod.asp TARGET=_blank)  "
-"Okolje ñ Voda ñ javni vodovod."
+"Okolje ‚Äì Voda ‚Äì javni vodovod."
 
-"Vir: Ministrstvo za okolje in prostor, Agencija Republike Slovenije "
-"za okolje, preraËuni StatistiËni urad Republike Slovenije. "
+"Vir: Ministrstvo za okolje in prostor, preraƒçuni Statistiƒçni urad "
+"Republike Slovenije. "
 " "
-"Od leta 2012 so zaradi spremembe metodologije podatki o nastalih "
-"koliËinah komunalnih odpadkov dopolnjeni s podatki o koliËinah "
-"komunalnih odpadkov, ki so bili zbrani mimo obvezne obËinske "
-"gospodarske javne sluûbe zbiranja komunalnih odpadkov. Od leta 2013 "
-"pa so dodane öe koliËine komunalnih odpadkov, ki so jih proizvajalci "
-"odpadkov zaËasno skladiöËili ali izvozili v tujino. "
+"Kazalnik se razlikuje od kazalnika na dr≈æavni ravni. "
 " "
-"Podrobnejöi podatki o komunalnih odpadkih so objavljeni na SI-STAT "
-"podatkovnem portalu v podroËju (seznam "
+"Podrobnej≈°i podatki o komunalnih odpadkih so objavljeni na SI-STAT "
+"podatkovnem portalu v podroƒçju (seznam "
 "HREF=http://pxweb.stat.si/pxweb/Database/Okolje/27_okolje/02_Odpadki/-"
 "01_27061_odvoz_odpadkov/01_27061_odvoz_odpadkov.asp TARGET=_blank)  "
-"Okolje ñ Odpadki ñ Komunalni odpadki."
+"Okolje ‚Äì Odpadki ‚Äì Komunalni odpadki."
 
 "Na dan 31.12. "
 " "
-"Vira: StatistiËni Urad Republike Slovenije, Ministrstvo za "
+"Vira: Statistiƒçni Urad Republike Slovenije, Ministrstvo za "
 "infrastrukturo. "
 " "
-"Podrobnejöi podatki o registriranih cestnih vozilih so objavljeni na "
-"SI-STAT podatkovnem portalu v podroËju (seznam "
+"Kazalnik se nekoliko razlikuje od kazalnika na dr≈æavni ravni. "
+" "
+"Podrobnej≈°i podatki o registriranih cestnih vozilih so objavljeni na "
+"SI-STAT podatkovnem portalu v podroƒçju (seznam "
 "HREF=http://pxweb.stat.si/pxweb/Database/Ekonomsko/22_transport/08_22-"
 "221_reg_cestna_vozila/08_22221_reg_cestna_vozila.asp TARGET=_blank)  "
-"Transport ñ Registrirana cestna vozila."
-
-"Potniöki kilometri (pkm) so seötevki zmnoûkov ötevila potnikov in "
-"razdalj, na katerih so se ti potniki peljali. "
-" "
-"Mestni potniöki promet ni vkljuËen. "
-" "
-"Zaradi razliËne metodologije podatki od leta 2010 dalje niso "
-"neposredno primerljivi s predhodnimi. "
-" "
-"Podrobnejöi podatki o cestnem potniökem prevozu so objavljeni na "
-"SI-STAT podatkovnem portalu v podroËju (seznam "
-"HREF=http://pxweb.stat.si/pxweb/Database/Ekonomsko/22_transport/02_22-"
-"212_cestni_transport/02_22214_potniski_prevoz/02_22214_potniski_prevoz"
-"asp TARGET=_blank)  Transport ñ Cestni transport ñ Cestni potniöki "
-"prevoz"
+"Transport ‚Äì Registrirana cestna vozila."
 
