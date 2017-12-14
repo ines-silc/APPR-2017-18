@@ -18,7 +18,10 @@ uvozi.izdatke <- function() {
   return(data)
   }
 tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
-
+tabela1 <- gather(tabela1, "rast (index 1995)", "dohodek", "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
+                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", "Izdatki za brezposelnost",
+                  "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
+tabela1 <- arrange(tabela1, leto)
 
 uvozi.kazalnike <- function(){
   data <- read_csv2("podatki/Kazalniki_varnosti.csv",
@@ -49,7 +52,11 @@ tabela3 <- inner_join(uvozi.dobo(), uvozi.zdrava.leta(), by="leto")
 tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta pri rojstvu Ženske`, `Zdrava leta Ženske`,
             `Zdrava leta pri rojstvu Moški`, `Zdrava leta Moški`,
             key = "Vrsta", value = "meritev")
-tabela3 <- arrange(tabela3, desc("leto"))
+tabela3 <- arrange(tabela3, leto)
+graf3 <- ggplot(data=tabela3, aes(x=leto, y=meritev, fill = Vrsta)) 
+      +geom_bar(stat="identity",  position=position_dodge(), colour="black") 
+      + scale_fill_brewer(palette = "Blues")
+
 
 uvozi.naravne.vire <- function(){
   data <- read_csv2("podatki/naravni_viri.csv",
