@@ -12,16 +12,24 @@ uvozi.bdp <- function() {
 uvozi.izdatke <- function() {
   data <- read_csv2("podatki/Socialna_zascita.csv",
                     col_names = c("leto", "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
-                                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", "Izdatki za brezposelnost",
-                                  "Izdatki za nastanitev", "drugo"), 
+                                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", 
+                                  "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo"), 
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 10, na = "...")
   return(data)
-  }
+}
+izdatki <- uvozi.izdatke()
+izdatki <- gather(izdatki, "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
+                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", 
+                  "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
+izdatki <- arrange(izdatki, leto)
+
 tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
-tabela1 <- gather(tabela1, "rast (index 1995)", "dohodek", "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
-                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", "Izdatki za brezposelnost",
-                  "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
+tabela1 <- gather(tabela1, "rast (index 1995)", "dohodek", "izdatki za bolezen", "izdatki za invalidnost",
+                  "izdatki za starost", "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke",
+                  "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
 tabela1 <- arrange(tabela1, leto)
+graf1 <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) 
+graf1 + geom_bar(position="dodge", stat="identity", colour="black")
 
 uvozi.kazalnike <- function(){
   data <- read_csv2("podatki/Kazalniki_varnosti.csv",
@@ -32,6 +40,10 @@ uvozi.kazalnike <- function(){
 }
 
 tabela2 <- uvozi.kazalnike() %>% fill(1:5)
+tabela2 <- gather(tabela2, "stopnja brezposelnosti",
+                  "prebivalci na zdravnika", "delež obsojenih ljudi", 
+                  key = "vrsta", value = "meritev")
+tabela2 <- arrange(tabela2, leto)
 
 uvozi.dobo <- function(){
   data <- read_csv2("podatki/Zivljenjska_doba.csv",
@@ -54,8 +66,7 @@ tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta pri rojstvu Ženske
             key = "Vrsta", value = "meritev")
 tabela3 <- arrange(tabela3, leto)
 graf3 <- ggplot(data=tabela3, aes(x=leto, y=meritev, fill = Vrsta)) 
-      +geom_bar(stat="identity",  position=position_dodge(), colour="black") 
-      + scale_fill_brewer(palette = "Blues")
+graf3 + geom_bar(stat="identity",  position=position_dodge(), colour="black") 
 
 
 uvozi.naravne.vire <- function(){
