@@ -8,6 +8,10 @@ library(reshape2)
 library(shiny)
 library(XML)
 library(tidyr)
+library(ggthemes)
+library(extrafont)
+library(plyr)
+library(scales)
 
 # Uvozimo funkcije za pobiranje in uvoz zemljevida.
 source("lib/uvozi.zemljevid.r", encoding = "UTF-8")
