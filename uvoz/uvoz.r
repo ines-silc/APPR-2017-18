@@ -2,10 +2,12 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 uvozi.bdp <- function() {
   data <- read_csv2("podatki/Ekonomska_rast.csv",
-                    col_names = c("leto", "rast (index 1995)", "dohodek"),
-                    locale = locale(encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
+                    col_names = c("leto", "rast", "dohodek"),
+                    locale = locale(decimal_mark = ".", encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
+  data$rast <- parse_number(data$rast)
   return(data)
 }
+A <- uvozi.bdp()
 
 uvozi.izdatke <- function() {
   data <- read_csv2("podatki/Socialna_zascita.csv",
@@ -13,6 +15,7 @@ uvozi.izdatke <- function() {
                                   "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", 
                                   "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo"), 
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 10, na = "...")
+  data$"izdatki za bolezen" <- parse_number(data$"izdatki za bolezen")
   return(data)
 }
 izdatki <- uvozi.izdatke()
