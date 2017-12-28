@@ -7,7 +7,6 @@ uvozi.bdp <- function() {
   data$rast <- parse_number(data$rast)
   return(data)
 }
-A <- uvozi.bdp()
 
 uvozi.izdatke <- function() {
   data <- read_csv2("podatki/Socialna_zascita.csv",
@@ -25,7 +24,7 @@ izdatki <- gather(izdatki, "izdatki za bolezen", "izdatki za invalidnost", "izda
 izdatki <- arrange(izdatki, leto)
 
 tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
-tabela1 <- gather(tabela1, "rast (index 1995)", "dohodek", "izdatki za bolezen", "izdatki za invalidnost",
+tabela1 <- gather(tabela1, "rast", "dohodek", "izdatki za bolezen", "izdatki za invalidnost",
                   "izdatki za starost", "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke",
                   "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
 tabela1 <- arrange(tabela1, leto)
@@ -110,6 +109,9 @@ uvozi.naravne.vire <- function(){
 }
 
 tabela4 <- uvozi.naravne.vire() %>% fill(1)
+#tabela4 <- gather(tabela4, `poraba_vode`, `odpadki`, `st_avtomobilov`, 
+                  key = "Vrsta", value = "meritev")
+#tabela4 <- arrange(tabela4, leto)
 
 poraba_vode <- tabela4[, ! names(tabela4) %in% c("odpadki", "st_avtomobilov"), drop = F]
 #poraba_vode %>% drop_na(poraba_vode)
