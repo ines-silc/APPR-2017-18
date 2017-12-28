@@ -104,30 +104,29 @@ graf3 + geom_bar(stat="identity",  position=position_dodge(), colour="black")
 uvozi.naravne.vire <- function(){
   data <- read_csv2("podatki/naravni_viri.csv",
                     col_names = c("leto", "regija", "poraba_vode", "odpadki", "st_avtomobilov"), 
-                    locale = locale(encoding = "UTF-8"), skip = 3, n_max = 143)
+                    locale = locale(encoding = "UTF-8"), skip = 3, n_max = 132)
   return(data)
 }
-
+tabela5 <- uvozi.naravne.vire() %>% fill(1)
 tabela4 <- uvozi.naravne.vire() %>% fill(1)
-#tabela4 <- gather(tabela4, `poraba_vode`, `odpadki`, `st_avtomobilov`, 
+tabela4 <- gather(tabela4, `poraba_vode`, `odpadki`, `st_avtomobilov`, 
                   key = "Vrsta", value = "meritev")
-#tabela4 <- arrange(tabela4, leto)
+tabela4 <- arrange(tabela4, leto)
 
-poraba_vode <- tabela4[, ! names(tabela4) %in% c("odpadki", "st_avtomobilov"), drop = F]
-#poraba_vode %>% drop_na(poraba_vode)
+poraba_vode <- tabela5[, ! names(tabela5) %in% c("odpadki", "st_avtomobilov"), drop = F]
 poraba_vode_graf <- ggplot(data = poraba_vode, aes(x = leto, y = poraba_vode, fill = regija))
 poraba_vode_graf + geom_bar(position="dodge", stat="identity", colour="black")
 #poraba_vode_graf + scale_x_continuous(breaks=seq(2005,2014,1))
 #poraba_vode_graf + labs(title = "Poraba vode v Sloveniji po regijah")
 
-odpadki <- tabela4[, ! names(tabela4) %in% c("poraba_vode", "st_avtomobilov"), drop = F]
+odpadki <- tabela5[, ! names(tabela5) %in% c("poraba_vode", "st_avtomobilov"), drop = F]
 #odpadki %>% drop_na(odpadki)
 odpadki_graf <- ggplot(data = odpadki, aes(x = leto, y = odpadki, fill = regija))
 odpadki_graf + geom_bar(position="dodge", stat="identity", colour="black")
 #odpadki_graf + scale_x_continuous(breaks=seq(2005,2014,1))
 #odpadki_graf + labs(title = "Odpadki v Sloveniji po regijah")
 
-avtomobili <- tabela4[, ! names(tabela4) %in% c("odpadki", "poraba_vode"), drop = F]
+avtomobili <- tabela5[, ! names(tabela5) %in% c("odpadki", "poraba_vode"), drop = F]
 #avtomobili %>% drop_na(avtomobili)
 avtomobili_graf <- ggplot(data = avtomobili, aes(x = leto, y = st_avtomobilov, fill = regija))
 avtomobili_graf + geom_bar(position="dodge", stat="identity", colour="black")

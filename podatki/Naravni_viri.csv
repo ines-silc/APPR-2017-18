@@ -1,8 +1,7 @@
 ﻿"Naravni viri po: LETO, STATISTIČNA REGIJA , KAZALNIK"
 
 " ";" ";"Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)";"Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)";"Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)"
-"2005"
-" ";"Pomurska";26.5;260;432
+"2005";"Pomurska";26.5;260;432
 " ";"Podravska";37.8;412;452
 " ";"Koroška";30.1;359;445
 " ";"Savinjska";40.8;392;458
@@ -14,8 +13,7 @@
 " ";"Primorsko-notranjska";35.4;422;496
 " ";"Goriška";41.9;467;536
 " ";"Obalno-kraška";43.6;492;541
-"2006"
-" ";"Pomurska";27.0;289;442
+"2006";"Pomurska";27.0;289;442
 " ";"Podravska";38.7;444;462
 " ";"Koroška";30.6;369;455
 " ";"Savinjska";41.5;376;467
@@ -27,8 +25,7 @@
 " ";"Primorsko-notranjska";34.9;410;506
 " ";"Goriška";43.0;495;545
 " ";"Obalno-kraška";44.9;483;549
-"2007"
-" ";"Pomurska";29.4;446;457
+"2007";"Pomurska";29.4;446;457
 " ";"Podravska";34.2;401;476
 " ";"Koroška";29.0;376;467
 " ";"Savinjska";53.6;395;481
@@ -40,8 +37,7 @@
 " ";"Primorsko-notranjska";36.6;420;518
 " ";"Goriška";51.0;499;556
 " ";"Obalno-kraška";35.2;478;558
-"2008"
-" ";"Pomurska";37.0;405;478
+"2008";"Pomurska";37.0;405;478
 " ";"Podravska";45.0;385;489
 " ";"Koroška";32.0;361;488
 " ";"Savinjska";43.0;408;502
@@ -53,8 +49,7 @@
 " ";"Primorsko-notranjska";34.0;441;537
 " ";"Goriška";43.0;481;577
 " ";"Obalno-kraška";42.0;478;570
-"2009"
-" ";"Pomurska";29.4;397;484
+"2009";"Pomurska";29.4;397;484
 " ";"Podravska";37.6;396;494
 " ";"Koroška";30.8;348;490
 " ";"Savinjska";40.0;362;506
@@ -66,8 +61,7 @@
 " ";"Primorsko-notranjska";37.7;209;542
 " ";"Goriška";42.7;474;581
 " ";"Obalno-kraška";36.1;460;569
-"2010"
-" ";"Pomurska";27.0;313;490
+"2010";"Pomurska";27.0;313;490
 " ";"Podravska";36.0;387;494
 " ";"Koroška";30.4;342;494
 " ";"Savinjska";36.5;371;510
@@ -79,8 +73,7 @@
 " ";"Primorsko-notranjska";37.1;351;545
 " ";"Goriška";36.9;158;580
 " ";"Obalno-kraška";39.7;463;569
-"2011"
-" ";"Pomurska";29.5;285;496
+"2011";"Pomurska";29.5;285;496
 " ";"Podravska";35.9;328;496
 " ";"Koroška";30.3;318;500
 " ";"Savinjska";42.2;336;513
@@ -92,8 +85,7 @@
 " ";"Primorsko-notranjska";38.0;313;550
 " ";"Goriška";42.2;411;580
 " ";"Obalno-kraška";40.9;401;568
-"2012"
-" ";"Pomurska";29.4;271;501
+"2012";"Pomurska";29.4;271;501
 " ";"Podravska";35.3;316;497
 " ";"Koroška";22.9;266;503
 " ";"Savinjska";47.1;296;513
@@ -105,8 +97,7 @@
 " ";"Primorsko-notranjska";42.7;296;555
 " ";"Goriška";47.2;378;577
 " ";"Obalno-kraška";49.0;386;563
-"2013"
-" ";"Pomurska";28.8;278;504
+"2013";"Pomurska";28.8;278;504
 " ";"Podravska";39.4;312;496
 " ";"Koroška";29.1;233;507
 " ";"Savinjska";42.8;288;512
@@ -118,8 +109,7 @@
 " ";"Primorsko-notranjska";39.3;297;553
 " ";"Goriška";52.1;355;577
 " ";"Obalno-kraška";28.8;384;558
-"2014"
-" ";"Pomurska";29.3;289;509
+"2014";"Pomurska";29.3;289;509
 " ";"Podravska";35.4;321;500
 " ";"Koroška";31.2;240;511
 " ";"Savinjska";39.2;291;526
@@ -131,8 +121,7 @@
 " ";"Primorsko-notranjska";33.6;327;555
 " ";"Goriška";51.8;357;579
 " ";"Obalno-kraška";41.5;394;559
-"2015"
-" ";"Pomurska";29.8;288;513
+"2015";"Pomurska";29.8;288;513
 " ";"Podravska";35.6;303;508
 " ";"Koroška";29.8;247;513
 " ";"Savinjska";40.6;297;515
