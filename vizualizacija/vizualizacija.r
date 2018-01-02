@@ -13,6 +13,7 @@ gpclibPermit()
 zemljevid <- readShapeSpatial("C:/Users/Ines Šilc/Downloads/SVN_adm_shp/SVN_adm1.shp")
 class(zemljevid)
 plot(zemljevid)
-regije <- ("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Jugovzhodna Slovenija",
+regije1 <- c("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Jugovzhodna Slovenija",
            "Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", "Goriška", "Obalno-kraška")
-
+regije2 <- c("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Jugovzhodna Slovenija",
+             "Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", "Posavska")
