@@ -132,3 +132,4 @@ avtomobili_graf <- ggplot(data = avtomobili, aes(x = leto, y = st_avtomobilov, f
 avtomobili_graf + geom_bar(position="dodge", stat="identity", colour="black")
 #avtomobili_graf + scale_x_continuous(breaks=seq(2005,2014,1))
 #avtomobili_graf + labs(title = "Število avtomobilov na 1000 prebivalcev v Sloveniji po regijah")
+
