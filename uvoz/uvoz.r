@@ -10,36 +10,35 @@ uvozi.bdp <- function() {
 
 uvozi.izdatke <- function() {
   data <- read_csv2("podatki/Socialna_zascita.csv",
-                    col_names = c("leto", "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
-                                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", 
-                                  "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo"), 
+                    col_names = c("leto", "izdatki_za_bolezen", "izdatki_za_invalidnost", "izdatki_za_starost", 
+                                  "izdatki_za_smrt_hranitelja_družine", "Izdatki_za_druzino_in_otroke", 
+                                  "Izdatki_za_brezposelnost", "Izdatki_za_nastanitev", "drugo"), 
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 10, na = "...")
-  data$"izdatki za bolezen" <- parse_number(data$"izdatki za bolezen")
   return(data)
 }
 izdatki <- uvozi.izdatke()
-izdatki <- gather(izdatki, "izdatki za bolezen", "izdatki za invalidnost", "izdatki za starost", 
-                  "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke", 
-                  "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
+izdatki <- gather(izdatki, izdatki_za_bolezen, izdatki_za_invalidnost, izdatki_za_starost, 
+                  izdatki_za_smrt_hranitelja_družine, Izdatki_za_druzino_in_otroke, 
+                  Izdatki_za_brezposelnost, Izdatki_za_nastanitev, drugo, key = "vrsta", value = "meritev")
 izdatki <- arrange(izdatki, leto)
 
-tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto" )
-tabela1 <- gather(tabela1, "rast", "dohodek", "izdatki za bolezen", "izdatki za invalidnost",
-                  "izdatki za starost", "izdatki za smrt hranitelja družine", "Izdatki za družino in otroke",
-                  "Izdatki za brezposelnost", "Izdatki za nastanitev", "drugo", key = "vrsta", value = "meritev")
+tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto")
+tabela1 <- gather(tabela1, rast, dohodek, izdatki_za_bolezen, izdatki_za_invalidnost, izdatki_za_starost, 
+                  izdatki_za_smrt_hranitelja_družine, Izdatki_za_druzino_in_otroke, 
+                  Izdatki_za_brezposelnost, Izdatki_za_nastanitev, drugo, key = "vrsta", value = "meritev")
 tabela1 <- arrange(tabela1, leto)
 
 uvozi.kazalnike <- function(){
   data <- read_csv2("podatki/Kazalniki_varnosti.csv",
-                    col_names = c("leto", "regija", "stopnja brezposelnosti",
-                                  "prebivalci na zdravnika", "delež obsojenih ljudi"),
+                    col_names = c("leto", "regija", "stopnja_brezposelnosti",
+                                  "prebivalci_na_zdravnika", "delez_obsojenih_ljudi"),
                     locale = locale(encoding = "Windows-1250"), skip = 2, n_max = 132, na = "...")
   return(data)
 }
 
 tabela2 <- uvozi.kazalnike() %>% fill(1:5)
-tabela2 <- gather(tabela2, "stopnja brezposelnosti",
-                  "prebivalci na zdravnika", "delež obsojenih ljudi", 
+tabela2 <- gather(tabela2, stopnja_brezposelnosti,
+                  prebivalci_na_zdravnika, delez_obsojenih_ljudi, 
                   key = "vrsta", value = "meritev")
 tabela2 <- arrange(tabela2, leto)
 
@@ -66,7 +65,7 @@ tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta pri rojstvu Ženske
 tabela3 <- arrange(tabela3, leto)
 
 uvozi.naravne.vire <- function(){
-  data <- read_csv2("podatki/naravni_viri.csv",
+  data <- read_csv2("podatki/Naravni_viri.csv",
                     col_names = c("leto", "regija", "poraba_vode", "odpadki", "st_avtomobilov"), 
                     locale = locale(encoding = "UTF-8"), skip = 3, n_max = 132)
   return(data)
