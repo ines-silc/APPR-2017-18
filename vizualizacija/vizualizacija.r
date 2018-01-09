@@ -21,12 +21,11 @@ stopnja_graf <- stopnja_graf + scale_fill_brewer(palette = "Paired")
 pnz <- gather(tabela21, prebivalci_na_zdravnika, key = "vrsta", value = "meritev")
 pnz <- pnz[, ! names(pnz) %in% c("vrsta", "stopnja brezposelnosti",
                                  "delež obsojenih ljudi"), drop = F]
-pnz_graf <- ggplot(data = stopnja, aes(x = leto, y = meritev, fill = regija))
+pnz_graf <- ggplot(stopnja[stopnja$leto == 2005, ], aes(x =leto, y = meritev, fill = regija))
 pnz_graf <- pnz_graf + geom_bar(position="dodge", stat="identity", colour="black")
 pnz_graf <- pnz_graf + scale_x_continuous(breaks=seq(2005,2015,1))
 pnz_graf <- pnz_graf + labs(title ="Število prebivalcev na enega zdravnika v Sloveniji po regijah")
 pnz_graf <- pnz_graf + scale_fill_brewer(palette = "Paired")
-
 
 delez_obsojenih <- gather(tabela21, delez_obsojenih_ljudi, key = "vrsta", value = "meritev")
 delez_obsojenih <- delez_obsojenih[, ! names(delez_obsojenih) %in% 
@@ -44,12 +43,11 @@ vrsta_urejeno <- c("Ženske" = 1,
                    "Zdrava leta Ženske" = 4,
                    "Zdrava leta pri rojstvu Moški" = 5,
                    "Zdrava leta Moški" = 6)
-graf3 <- ggplot(tabela3, aes(x=leto, y=meritev, fill = reorder(Vrsta, vrsta_urejeno[Vrsta]))) 
-graf3 <- graf3 + geom_bar(stat="identity",  position=position_dodge(), colour="black")
+graf3 <- ggplot(tabela3, aes(x=leto, y=meritev, color = reorder(Vrsta, vrsta_urejeno[Vrsta]))) 
+graf3 <- graf3 + geom_line() + geom_point()
 graf3 <- graf3 + scale_x_continuous(breaks=seq(2005,2015,1))
 graf3 <- graf3 + labs(title = "Primerjava življenjske dobe in zdravih let")
-graf3 <- graf3 + scale_fill_brewer(palette = "Dark2")
-
+graf3 <- graf3 + scale_fill_brewer(palette = "Dark2") + scale_fill_manual(name = "Vrsta")
 
 tabela41 <- uvozi.naravne.vire() %>% fill(1)
 poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
@@ -83,9 +81,9 @@ gpclibPermit()
 zemljevid <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip",
                              "SVN_adm1", encoding = "UTF-8") 
 zemljevid <- pretvori.zemljevid(zemljevid)
-#levels(zemljevid$OB_UIME) <- levels(zemljevid$OB_UIME) %>%
-  #{ gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-#zemljevid$OB_UIME <- factor(zemljevid$OB_UIME, levels = levels(obcine$obcina))
+levels(zemljevid$NAME_1) <- levels(zemljevid$NAME_1) %>%
+  { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
+#zemljevid$NAME_1 <- factor(zemljevid$NAME_1, levels = levels(tabela$regija))
 plot(zemljevid)
 #regije1 <- c("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Jugovzhodna Slovenija",
            #"Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", "Goriška", "Obalno-kraška")
