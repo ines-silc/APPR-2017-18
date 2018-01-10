@@ -47,45 +47,36 @@ graf3 <- ggplot(tabela3, aes(x=leto, y=meritev, color = reorder(Vrsta, vrsta_ure
 graf3 <- graf3 + geom_line() + geom_point()
 graf3 <- graf3 + scale_x_continuous(breaks=seq(2005,2015,1))
 graf3 <- graf3 + labs(title = "Primerjava življenjske dobe in zdravih let")
-graf3 <- graf3 + scale_fill_brewer(palette = "Dark2") + scale_fill_manual(name = "Vrsta")
-
-tabela41 <- uvozi.naravne.vire() %>% fill(1)
-poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
-poraba_vode_graf <- ggplot(data = poraba_vode, aes(x = leto, y = poraba_vode, fill = regija))
-poraba_vode_graf <- poraba_vode_graf + geom_bar(position="dodge", stat="identity", colour="black")
-poraba_vode_graf <- poraba_vode_graf + scale_x_continuous(breaks=seq(2005,2015,1))
-poraba_vode_graf <- poraba_vode_graf + labs(title = "Poraba vode v Sloveniji po regijah")
-poraba_vode_graf <- poraba_vode_graf + scale_fill_brewer(palette = "Paired")
-
-
-
-odpadki <- tabela41[, ! names(tabela41) %in% c("poraba_vode", "st_avtomobilov"), drop = F]
-odpadki_graf <- ggplot(data = odpadki, aes(x = leto, y = odpadki, fill = regija))
-odpadki_graf <- odpadki_graf + geom_bar(position="dodge", stat="identity", colour="black")
-odpadki_graf <- odpadki_graf + scale_x_continuous(breaks=seq(2005,2015,1))
-odpadki_graf <- odpadki_graf + labs(title = "Odpadki v Sloveniji po regijah")
-odpadki_graf <- odpadki_graf + scale_fill_brewer(palette = "Paired")
-
-
-
-avtomobili <- tabela41[, ! names(tabela41) %in% c("odpadki", "poraba_vode"), drop = F]
-avtomobili_graf <- ggplot(data = avtomobili, aes(x = leto, y = st_avtomobilov, fill = regija))
-avtomobili_graf <- avtomobili_graf + geom_bar(position="dodge", stat="identity", colour="black")
-avtomobili_graf <- avtomobili_graf + scale_x_continuous(breaks=seq(2005,2015,1))
-avtomobili_graf <- avtomobili_graf + labs(title = "Število avtomobilov na 1000 prebivalcev v Sloveniji po regijah")
-avtomobili_graf <- avtomobili_graf + scale_fill_brewer(palette = "Paired")
-
+graf3 <- graf3 + scale_fill_brewer(palette = "Dark2")
 
 # Uvozimo zemljevid.
 gpclibPermit()
 zemljevid <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip",
-                             "SVN_adm1", encoding = "UTF-8") 
-zemljevid <- pretvori.zemljevid(zemljevid)
-levels(zemljevid$NAME_1) <- levels(zemljevid$NAME_1) %>%
-  { gsub("Slovenskih", "Slov.", .) } %>% { gsub("-", " - ", .) }
-#zemljevid$NAME_1 <- factor(zemljevid$NAME_1, levels = levels(tabela$regija))
-plot(zemljevid)
-#regije1 <- c("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Jugovzhodna Slovenija",
-           #"Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", "Goriška", "Obalno-kraška")
-#regije2 <- c("Pomurska", "Podravska", "Koroška", "Savinjska", "Zasavska", "Jugovzhodna Slovenija",
-             #"Osrednjeslovenska", "Gorenjska", "Primorsko-notranjska", "Posavska")
+                             "SVN_adm1", encoding = "UTF-8") %>% pretvori.zemljevid()
+
+tabela41 <- uvozi.naravne.vire() %>% fill(1)
+poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
+#poraba vode
+voda <- poraba_vode %>% group_by(regija) %>% summarise(poraba_vode = mean(poraba_vode))
+zemljevid.vode <- ggplot() +
+  geom_polygon(data = voda %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill = poraba_vode), color = "black")+
+               xlab("") + ylab("") + ggtitle("Poraba vode po regijah")
+                #guides(fill = guide_colorbar(title = "m3/prebivalca"))
+
+
+odpadki <- tabela41[, ! names(tabela41) %in% c("poraba_vode", "st_avtomobilov"), drop = F]
+odpadki1 <- odpadki %>% group_by(regija) %>% summarise(odpadki=mean(odpadki))
+zemljevid.odpadki <- ggplot() +
+  geom_polygon(data = odpadki1 %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill = odpadki), color = "black")+
+                xlab("") + ylab("") + ggtitle("Količina odpadkov po regijah")
+                #guides(fill = guide_colorbar(title = "kilogram/prebivalca"))
+
+
+avtomobili <- tabela41[, ! names(tabela41) %in% c("odpadki", "poraba_vode"), drop = F] 
+avto <- avtomobili %>% group_by(regija) %>% summarise(avtomobili = mean(st_avtomobilov))
+zemljevid.avto <- ggplot() +
+  geom_polygon(data = avto %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill = avtomobili), color = "black")+
+                xlab("") + ylab("") + ggtitle("Število avtomobilov na 1000 prebivalcev")
