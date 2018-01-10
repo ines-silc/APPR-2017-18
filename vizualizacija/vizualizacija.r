@@ -53,6 +53,10 @@ graf3 <- graf3 + scale_fill_brewer(palette = "Dark2")
 gpclibPermit()
 zemljevid <- uvozi.zemljevid("http://biogeo.ucdavis.edu/data/gadm2.8/shp/SVN_adm_shp.zip",
                              "SVN_adm1", encoding = "UTF-8") %>% pretvori.zemljevid()
+levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
+                           c("Notranjsko-kraška",
+                             "Spodnjeposavska")] <- c("Primorsko-notranjska",
+                                                      "Posavska")
 
 tabela41 <- uvozi.naravne.vire() %>% fill(1)
 poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
