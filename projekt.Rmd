@@ -7,7 +7,6 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
@@ -43,6 +42,7 @@ Uvozila sem podatke o občinah v obliki CSV s statističnega urada in Eurostata,
 z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
 
 1.`Leto` -spremenljivka: leto, katerega so bile narejene meritve
+
  - `Bruto domači proizvod` - meritev: rast bruto domačega proizvoda (število)
  - `Dohodek` - meritev: povprečni dohodek na člana gospodinjstva (število)
  - `Izdatki za zdravstveno varstvo` - meritev: delež dohodka, ki se nameni za zdravstveno varstvo
@@ -54,31 +54,32 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
  - `Izdatki za nastanitev` - meritev: delež dohodka, ki se nameni za nastanitev
  
 2.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
+
  - `regija` - spremenljivka: regija, v kateri so bile narejene meritve
  - `Brezposelnost` - meritev: povprečna stopnja brezposelnosti
  - `Število prebivalcev na enega zdravnika` - meritev: število prebivalcev na enega zdravnika
- - `Delež obsojenih ljudi` - meritev: Delež obsojenih oseb med prebivalci regije po regiji stalnega     prebivališča
+ - `Delež obsojenih ljudi` - meritev: Delež obsojenih oseb med prebivalci regije po regiji            stalnega prebivališča
  
-3. `Leto` - spremenljivka: leto, katerega so bile narejene meritve
- `Življenjska doba` - meritev: povprečna življenjska doba
- `Število zdravih let žensk pri rojstvu` - meritev: pričakovano število zdravih let žensk pri     rojstvu
- `Število zdravih let žensk` - meritev: pričakovano število zdravih let žensk skozi celotno       življenje
- `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri rojstvu
- `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno življenje
+3.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
+
+ - `Življenjska doba` - meritev: povprečna življenjska doba
+ - `Število zdravih let žensk pri rojstvu` - meritev: pričakovano število zdravih let žensk pri       rojstvu
+ - `Število zdravih let žensk` - meritev: pričakovano število zdravih let žensk skozi celotno         življenje
+ - `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri     rojstvu
+ - `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno       življenje
  
-4. `Leto`- spremenljivka: leto, katerega so bile narejene meritve
- -`Regija`- spremenljivka: regija, v kateri so bile narejene meritve
- -`Poraba vode, dobavljene iz javnega vodovoda` - meritev: Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)
- - `Komunalni odpadki` - meritev: Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)
- - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
+4.`Leto`- spremenljivka: leto, katerega so bile narejene meritve
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
+ - `Regija`- spremenljivka: regija, v kateri so bile narejene meritve
+ - `Poraba vode, dobavljene iz javnega vodovoda` - meritev: Poraba vode, dobavljene iz javnega       vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)
+ - `Komunalni odpadki` - meritev: Komunalni odpadki, zbrani z javnim odvozom odpadkov na            prebivalca (kilogram/prebivalca)
+ - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih         avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
 
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
 
-```{r histogram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-ggplot(obcine, aes(x = naselja)) + geom_histogram() +
-  ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
+Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov.
+
+```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
+#print(graf1)
 ```
 
 ***
@@ -89,37 +90,14 @@ ggplot(obcine, aes(x = naselja)) + geom_histogram() +
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
+Spodnji zemljevid prikazuje povprečno stopnjo brezposelnosti po regijah.
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-ggplot() + geom_polygon(data = left_join(zemljevid, povprecja, by = c("OB_UIME" = "obcina")),
-                        aes(x = long, y = lat, group = group, fill = povprecje)) +
-  ggtitle("Povprečno število otrok v družini") + xlab("") + ylab("") +
-  guides(fill = guide_colorbar(title = "Povprečje"))
+```{r zemljevid_stopnje, echo=FALSE, message=FALSE, fig.align='center'}
+print(zemljevid.stopnje)
 ```
 
 ***
 
 # Napredna analiza podatkov
 
-```{r analiza, echo=FALSE, message=FALSE}
-source("analiza/analiza.r", encoding = "UTF-8")
-```
 
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-ggplot(inner_join(obcine, data.frame(obcina = names(skupine),
-                                     skupina = factor(skupine)), by = "obcina")
-, aes(x = povrsina, y = naselja, color = skupina, size = prebivalci/1000)) + geom_point() +
-  ggtitle("Število naselij glede na površino občine") +
-  xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") +
-  guides(color = guide_legend(title = "Skupina"),
-         size = guide_legend(title = "Prebivalci (* 1000)"))
-```
-
-***
-
-```{r shiny, echo = FALSE}
-shinyAppDir("shiny", options=list(width="100%", height=600))
-```

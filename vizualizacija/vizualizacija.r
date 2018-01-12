@@ -7,36 +7,6 @@ graf1 <- graf1 + labs(title ="Odstotek dohodka za različne vrste izdatkov")
 graf1 <- graf1 + scale_x_continuous(breaks=seq(2005,2014,1))
 graf1 <- graf1 + scale_fill_brewer(palette = "Blues")
 
-tabela21 <- uvozi.kazalnike() %>% fill(1:5)
-stopnja <- gather(tabela21, stopnja_brezposelnosti, key = "vrsta", value = "meritev")
-stopnja <- stopnja[, ! names(stopnja) %in% c("vrsta", "prebivalci na zdravnika",
-                                             "delež obsojenih ljudi"), drop = F]
-stopnja_graf <- ggplot(data = stopnja, aes(x = leto, y = meritev, fill = regija))
-stopnja_graf <- stopnja_graf + geom_bar(position="dodge", stat="identity", colour="black")
-stopnja_graf <-  stopnja_graf + scale_x_continuous(breaks=seq(2005,2015,1))
-stopnja_graf <- stopnja_graf + labs(title ="Stopnja brezposelnosti v Sloveniji po regijah")
-stopnja_graf <- stopnja_graf + scale_fill_brewer(palette = "Paired")
-
-
-pnz <- gather(tabela21, prebivalci_na_zdravnika, key = "vrsta", value = "meritev")
-pnz <- pnz[, ! names(pnz) %in% c("vrsta", "stopnja brezposelnosti",
-                                 "delež obsojenih ljudi"), drop = F]
-pnz_graf <- ggplot(stopnja[stopnja$leto == 2005, ], aes(x =leto, y = meritev, fill = regija))
-pnz_graf <- pnz_graf + geom_bar(position="dodge", stat="identity", colour="black")
-pnz_graf <- pnz_graf + scale_x_continuous(breaks=seq(2005,2015,1))
-pnz_graf <- pnz_graf + labs(title ="Število prebivalcev na enega zdravnika v Sloveniji po regijah")
-pnz_graf <- pnz_graf + scale_fill_brewer(palette = "Paired")
-
-delez_obsojenih <- gather(tabela21, delez_obsojenih_ljudi, key = "vrsta", value = "meritev")
-delez_obsojenih <- delez_obsojenih[, ! names(delez_obsojenih) %in% 
-                                     c("stopnja brezposelnosti", "prebivalci na zdravnika",
-                                       "vrsta"), drop = F]
-delez_obsojenih_graf <- ggplot(data = stopnja, aes(x = leto, y = meritev, fill = regija))
-delez_obsojenih_graf <- delez_obsojenih_graf + geom_bar(position="dodge", stat="identity", colour="black")
-delez_obsojenih_graf <- delez_obsojenih_graf + scale_x_continuous(breaks=seq(2005,2015,1))
-delez_obsojenih_graf <- delez_obsojenih_graf + labs(title ="Delež obsojenih ljudi v Sloveniji po regijah")
-delez_obsojenih_graf <- delez_obsojenih_graf + scale_fill_brewer(palette = "Paired")
-
 vrsta_urejeno <- c("Ženske" = 1,
                    "Moški" = 2,
                    "Zdrava leta pri rojstvu Ženske" = 3,
@@ -57,10 +27,39 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
                            c("Notranjsko-kraška",
                              "Spodnjeposavska")] <- c("Primorsko-notranjska",
                                                       "Posavska")
+tabela21 <- uvozi.kazalnike() %>% fill(1:5)
+stopnja <- gather(tabela21, stopnja_brezposelnosti, key = "vrsta", value = "meritev")
+stopnja <- stopnja[, ! names(stopnja) %in% c("vrsta", "prebivalci_na_zdravnika",
+                                             "delez_obsojenih_ljudi"), drop = F]
+povprecna_stopnja <- stopnja %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+zemljevid.stopnje <- ggplot() +
+  geom_polygon(data = stopnja %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
+                xlab("") + ylab("") + ggtitle("Povprečna stopnja brezposelnosti po regijah")
+
+
+pnz <- gather(tabela21, prebivalci_na_zdravnika, key = "vrsta", value = "meritev")
+pnz <- pnz[, ! names(pnz) %in% c("vrsta", "stopnja_brezposelnosti",
+                                 "delez_obsojenih_ljudi"), drop = F]
+povprecno_pnz <- pnz %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+zemljevid.zdravniki <- ggplot() +
+  geom_polygon(data = pnz %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
+  xlab("") + ylab("") + ggtitle("Povprečna število prebivalcev na enega zdravnika")
+
+delez_obsojenih <- gather(tabela21, delez_obsojenih_ljudi, key = "vrsta", value = "meritev")
+delez_obsojenih <- delez_obsojenih[, ! names(delez_obsojenih) %in% 
+                                     c("stopnja_brezposelnosti", "prebivalci_na_zdravnika",
+                                       "vrsta"), drop = F]
+povprecno_delez_obsojenih <- delez_obsojenih %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+zemljevid.obsojenih <- ggplot() +
+  geom_polygon(data = delez_obsojenih %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
+  xlab("") + ylab("") + ggtitle("Povprečen delež obsojenih po regijah")
+
 
 tabela41 <- uvozi.naravne.vire() %>% fill(1)
 poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
-#poraba vode
 voda <- poraba_vode %>% group_by(regija) %>% summarise(poraba_vode = mean(poraba_vode))
 zemljevid.vode <- ggplot() +
   geom_polygon(data = voda %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
@@ -84,3 +83,4 @@ zemljevid.avto <- ggplot() +
   geom_polygon(data = avto %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
                aes(x = long, y = lat, group = group, fill = avtomobili), color = "black")+
                 xlab("") + ylab("") + ggtitle("Število avtomobilov na 1000 prebivalcev")
+
