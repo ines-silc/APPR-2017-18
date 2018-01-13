@@ -3,8 +3,16 @@ sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 uvozi.bdp <- function() {
   data <- read_csv2("podatki/Ekonomska_rast.csv",
                     col_names = c("leto", "rast", "dohodek"),
-                    locale = locale(decimal_mark = ".", encoding = "Windows-1250"), skip = 3, n_max = 11, na = "...")
+                    locale = locale(decimal_mark = ".", encoding = "Windows-1250"), skip = 3, n_max = 21, na = "...")
   data$rast <- parse_number(data$rast)
+  #Podatki za leta 2000–2006 predstavljajo razpoložljiva sredstva gospodinjstev 
+  #(brez lastne proizvodnje in bonitet) na člana gospodinjstva (EUR) 
+  #iz raziskovanja Poraba v gospodinjstvih.
+  #Razpoložljiva sredstva gospodinjstev obsegajo vsa denarna sredstva, 
+  #ki jih imajo gospodinjstva v opazovanem obdobju na razpolago.
+  #Podatki so preračunani iz obdobja treh zaporednih let (npr. 2005–2007) 
+  #na srednje leto (npr. 2006) kot referenčno leto.
+  
   return(data)
 }
 

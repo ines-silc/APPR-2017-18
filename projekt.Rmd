@@ -76,11 +76,7 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
  - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih         avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
 
 
-Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov.
 
-```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
-#print(graf1)
-```
 
 ***
 
@@ -90,11 +86,37 @@ Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov.
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
+```{r graf.bdp, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf.bdp)
+
+```
+
+Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov.
+
+```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf1)
+
+```
+
+```{r graf3, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf3)
+
+```
+
 Spodnji zemljevid prikazuje povprečno stopnjo brezposelnosti po regijah.
 
-```{r zemljevid_stopnje, echo=FALSE, message=FALSE, fig.align='center'}
+```{r zemljevid.stopnje, echo=FALSE, message=FALSE, fig.align='center'}
 print(zemljevid.stopnje)
 ```
+
+```{r zemljevid.zdravniki, echo=FALSE, message=FALSE, fig.align='center'}
+print(zemljevid.zdravniki)
+```
+
+```{r zemljevid.obsojenih, echo=FALSE, message=FALSE, fig.align='center'}
+print(zemljevid.obsojenih)
+```
+
 
 ***
 

@@ -1,6 +1,12 @@
 # 3. faza: Vizualizacija podatkov
 
 #Grafi
+bdp <- uvozi.bdp()
+graf.bdp <- ggplot(data = bdp, aes(x = dohodek, y = rast)) +
+            geom_point(stat = 'identity')+ 
+            labs(title ="Povezava med rastjo in velikostjo dohodka")
+
+
 graf1 <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) 
 graf1 <- graf1 + geom_bar(position="dodge", stat="identity", colour="black")
 graf1 <- graf1 + labs(title ="Odstotek dohodka za različne vrste izdatkov")
