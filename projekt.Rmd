@@ -9,7 +9,7 @@ output:
     latex_engine: xelatex
 ---
 
-```{r setup, echo=FALSE, results='hide', message=FALSE}
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning = FALSE}
 # Če želimo nastaviti pisave v PDF-ju, odkomentiramo
 # in sledimo navodilom v programu.
 #source("fontconfig.r", encoding = "UTF-8")
@@ -34,7 +34,7 @@ Cilj: poskušala bom najti povezave med gospodarsko rastjo in izdatkov za zdravs
 
 # Obdelava, uvoz in čiščenje podatkov
 
-```{r uvoz, echo=FALSE, message=FALSE}
+```{r uvoz, echo=FALSE, message=FALSE, warning = FALSE}
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
@@ -86,7 +86,7 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
-```{r graf.bdp, echo=FALSE, message=FALSE, fig.align='center'}
+```{r graf.bdp, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf.bdp)
 
 ```
