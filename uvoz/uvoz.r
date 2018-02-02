@@ -9,6 +9,7 @@ uvozi.dobo1 <- function() {
   tabela2 <- select(tabela, leto1, moski1, zenske1)
   colnames(tabela2) <- c("leto", "moski", "zenske")
   tabela <- merge(tabela1, tabela2, all = TRUE)
+  tabela$leto <- parse_number(tabela$leto)
   return(tabela)
 }
 doba <- uvozi.dobo1()
@@ -30,6 +31,11 @@ uvozi.bdp <- function() {
   
   return(data)
 }
+bdp <- uvozi.bdp()
+
+prva <- inner_join(bdp, doba, by= "leto")
+
+
 
 uvozi.izdatke <- function() {
   data <- read_csv2("podatki/Socialna_zascita.csv",
