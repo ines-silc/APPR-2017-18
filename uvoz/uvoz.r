@@ -1,5 +1,20 @@
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
+uvozi.dobo1 <- function() {
+  link <- "https://sl.wikipedia.org/wiki/Pri%C4%8Dakovana_%C5%BEivljenjska_doba"
+  stran <- html_session(link) %>% read_html()
+  tabela <- stran %>% html_nodes(xpath="//table")%>% .[[2]] %>% html_table()
+  colnames(tabela) <- c("leto", "moski", "zenske", "neki", "leto1", "moski1", "zenske1")
+  tabela1 <- select(tabela, leto, moski, zenske)
+  tabela2 <- select(tabela, leto1, moski1, zenske1)
+  colnames(tabela2) <- c("leto", "moski", "zenske")
+  tabela <- merge(tabela1, tabela2, all = TRUE)
+  return(tabela)
+}
+doba <- uvozi.dobo1()
+
+
+
 uvozi.bdp <- function() {
   data <- read_csv2("podatki/Ekonomska_rast.csv",
                     col_names = c("leto", "rast", "dohodek"),
