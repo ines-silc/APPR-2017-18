@@ -18,7 +18,7 @@ output:
 source("lib/libraries.r", encoding = "UTF-8")
 ```
 
-# Analiza kazalcev trajnostnega razvoja in kakovost življenja v Sloveniji
+
 
 V projektu bom analizirala kazalce družbene blaginje v Sloveniji s štirih področji.
 

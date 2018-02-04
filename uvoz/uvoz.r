@@ -1,19 +1,23 @@
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
-uvozi.dobo1 <- function() {
+uvozi.dobo <- function() {
   link <- "https://sl.wikipedia.org/wiki/Pri%C4%8Dakovana_%C5%BEivljenjska_doba"
   stran <- html_session(link) %>% read_html()
-  tabela <- stran %>% html_nodes(xpath="//table")%>% .[[2]] %>% html_table()
+  tabela <- stran %>% html_nodes(xpath="//table")%>% .[[2]] %>% html_table(dec = ",")
   colnames(tabela) <- c("leto", "moski", "zenske", "neki", "leto1", "moski1", "zenske1")
   tabela1 <- select(tabela, leto, moski, zenske)
   tabela2 <- select(tabela, leto1, moski1, zenske1)
   colnames(tabela2) <- c("leto", "moski", "zenske")
   tabela <- merge(tabela1, tabela2, all = TRUE)
   tabela$leto <- parse_number(tabela$leto)
+  tabela$moski <- parse_number(tabela$moski)
+  tabela$zenske <- parse_number(tabela$zenske)
   return(tabela)
 }
-doba <- uvozi.dobo1()
-
+doba <- uvozi.dobo()
+doba <- gather(doba, moski, zenske, key = "vrsta", value = "st_let")
+doba <- arrange(doba, leto)
+doba <- doba %>% group_by(leto) %>% summarise(st_let = mean(st_let))
 
 
 uvozi.bdp <- function() {
@@ -50,6 +54,8 @@ izdatki <- gather(izdatki, izdatki_za_bolezen, izdatki_za_invalidnost, izdatki_z
                   izdatki_za_smrt_hranitelja_družine, Izdatki_za_druzino_in_otroke, 
                   Izdatki_za_brezposelnost, Izdatki_za_nastanitev, drugo, key = "vrsta", value = "meritev")
 izdatki <- arrange(izdatki, leto)
+povprecje_izdatkov <- izdatki %>% group_by(vrsta) %>% summarise(meritev = mean(meritev))
+
 
 tabela1 <- inner_join(uvozi.bdp(), uvozi.izdatke(), by = "leto")
 tabela1 <- gather(tabela1, rast, dohodek, izdatki_za_bolezen, izdatki_za_invalidnost, izdatki_za_starost, 
@@ -70,6 +76,23 @@ tabela2 <- gather(tabela2, stopnja_brezposelnosti,
                   prebivalci_na_zdravnika, delez_obsojenih_ljudi, 
                   key = "vrsta", value = "meritev")
 tabela2 <- arrange(tabela2, leto)
+tabela21 <- uvozi.kazalnike() %>% fill(1:5)
+stopnja <- gather(tabela21, stopnja_brezposelnosti, key = "vrsta", value = "meritev")
+stopnja <- stopnja[, ! names(stopnja) %in% c("vrsta", "prebivalci_na_zdravnika",
+                                             "delez_obsojenih_ljudi"), drop = F]
+
+povprecna_stopnja <- stopnja %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+pnz <- gather(tabela21, prebivalci_na_zdravnika, key = "vrsta", value = "meritev")
+pnz <- pnz[, ! names(pnz) %in% c("vrsta", "stopnja_brezposelnosti",
+                                 "delez_obsojenih_ljudi"), drop = F]
+
+povprecno_pnz <- pnz %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+delez_obsojenih <- gather(tabela21, delez_obsojenih_ljudi, key = "vrsta", value = "meritev")
+delez_obsojenih <- delez_obsojenih[, ! names(delez_obsojenih) %in% 
+                                     c("stopnja_brezposelnosti", "prebivalci_na_zdravnika",
+                                       "vrsta"), drop = F]
+povprecno_delez_obsojenih <- delez_obsojenih %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+
 
 uvozi.dobo <- function(){
   data <- read_csv2("podatki/Zivljenjska_doba.csv",
@@ -92,6 +115,12 @@ tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta pri rojstvu Ženske
             `Zdrava leta pri rojstvu Moški`, `Zdrava leta Moški`,
             key = "Vrsta", value = "meritev")
 tabela3 <- arrange(tabela3, leto)
+vrsta_urejeno <- c("Ženske" = 1,
+                   "Moški" = 2,
+                   "Zdrava leta pri rojstvu Ženske" = 3,
+                   "Zdrava leta Ženske" = 4,
+                   "Zdrava leta pri rojstvu Moški" = 5,
+                   "Zdrava leta Moški" = 6)
 
 uvozi.naravne.vire <- function(){
   data <- read_csv2("podatki/Naravni_viri.csv",
@@ -104,3 +133,11 @@ tabela4 <- uvozi.naravne.vire() %>% fill(1)
 tabela4 <- gather(tabela4, `poraba_vode`, `odpadki`, `st_avtomobilov`, 
                   key = "Vrsta", value = "meritev")
 tabela4 <- arrange(tabela4, leto)
+tabela41 <- uvozi.naravne.vire() %>% fill(1)
+poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
+voda <- poraba_vode %>% group_by(regija) %>% summarise(poraba_vode = mean(poraba_vode))
+odpadki <- tabela41[, ! names(tabela41) %in% c("poraba_vode", "st_avtomobilov"), drop = F]
+odpadki1 <- odpadki %>% group_by(regija) %>% summarise(odpadki=mean(odpadki))
+avtomobili <- tabela41[, ! names(tabela41) %in% c("odpadki", "poraba_vode"), drop = F] 
+avto <- avtomobili %>% group_by(regija) %>% summarise(avtomobili = mean(st_avtomobilov))
+
