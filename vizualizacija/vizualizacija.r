@@ -1,33 +1,39 @@
 # 3. faza: Vizualizacija podatkov
 
-#Grafi
+graf.bdp <- ggplot(data = bdp) +
+            geom_point(aes(x = dohodek, y = rast))+ 
+            labs(title ="Povezava med rastjo in velikostjo dohodka")+
+            geom_text(aes(x = dohodek, y = rast, label=leto),hjust=0, vjust=0)+
+            scale_y_continuous(limits = c(1250, 1700))+
+            scale_x_continuous(limits = c(4300, 9000))+
+            xlab("Dohodek") + ylab("Gospodarska rast")
+            
 
-graf.bdp <- ggplot(data = bdp, aes(x = dohodek, y = rast)) +
-            geom_point(stat = 'identity')+ 
-            labs(title ="Povezava med rastjo in velikostjo dohodka")
-
-prvi.graf <- ggplot(data = prva) +
+graf.rast.doba <- ggplot(data = prva) +
               geom_point(aes(x = rast, y = st_let), stat = 'identity')+
               geom_smooth(aes(x = rast, y = st_let), method = lm)+
               geom_text(aes(x = rast, y = st_let, label=leto),hjust=0, vjust=0)+
-              labs(title ="Povezava gospodarske rasti in življenjske dobe")
+              labs(title ="Povezava gospodarske rasti in življenjske dobe")+
+              ylab("Življenjska doba") + xlab("Gospodarska rast")
 
 
-graf1 <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) 
-graf1 <- graf1 + geom_bar(position="dodge", stat="identity", colour="black")
-graf1 <- graf1 + labs(title ="Odstotek dohodka za različne vrste izdatkov")
-graf1 <- graf1 + scale_x_continuous(breaks=seq(2005,2014,1))
-graf1 <- graf1 + scale_fill_brewer(palette = "Paired")
+graf.izdatki <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) +
+         geom_bar(position="dodge", stat="identity", colour="black")+
+          labs(title ="Odstotek dohodka za različne vrste izdatkov")+
+          scale_x_continuous(breaks=seq(2005,2014,1))+
+          scale_fill_brewer(palette = "Paired")
 
 
-povprecje_izdatkov_graf <- ggplot(povprecje_izdatkov, aes(x = factor(1), y=meritev ,fill=factor(vrsta)) ) + 
-                            geom_bar(width = 1,stat="identity")+coord_polar(theta = "y") 
+tortni.graf.izdatki <- ggplot(povprecje_izdatkov, aes(x = factor(1), y=meritev ,fill=factor(vrsta)) ) + 
+                      geom_bar(width = 1,stat="identity")+
+                      coord_polar(theta = "y") +
+                      scale_fill_brewer(palette = "Paired")
 
-graf3 <- ggplot(tabela3, aes(x=leto, y=meritev, color = reorder(Vrsta, vrsta_urejeno[Vrsta]))) +
-          geom_line() + geom_point()+
-          scale_x_continuous(breaks=seq(2005,2015,1))+
-          labs(title = "Primerjava življenjske dobe in zdravih let")+
-          scale_fill_brewer(palette = "Dark2", name = "Vrsta")
+graf.leta <- ggplot(tabela3, aes(x=leto, y=meritev, color = reorder(Vrsta, vrsta_urejeno[Vrsta]))) +
+                    geom_line() + geom_point()+
+                    scale_x_continuous(breaks=seq(2005,2015,1))+
+                    labs(title = "Primerjava življenjske dobe in zdravih let")+
+                    scale_fill_brewer(palette = "Dark2", name = "Vrsta")
 
 
 # Uvozimo zemljevid.

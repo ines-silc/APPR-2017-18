@@ -18,15 +18,13 @@ output:
 source("lib/libraries.r", encoding = "UTF-8")
 ```
 
-
-
 V projektu bom analizirala kazalce družbene blaginje v Sloveniji s štirih področji.
 
 Prvo področje bo splošna ekonomska rast, tu se bom osredotočila predvsem na podatke o rasti bruto domačega proizvoda na prebivalca ter dohodek, pričakovana življenjska doba in izraba naravnih virov.
 
 Drugo področje je Varnost, tu so vključeni:, kazalniki socialne zaščite (kjer se merijo izdatki za starost, invalidnost, brezposelnost...), stopnja brezposelnosti, število prebivalcev na enega zdravnika in delež obsojenih oseb.
 
-Tretje področje je zdravje. Tu se bom osredotočila na podatke o procentu ljudi, ki živi v slabih stanovanjskih razmerah, število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe ter navedla podatke o nezadovoljstvu ljudi z slovenskim zdravstvenim sistemom (tu se bom osredotočila predvsem na podatke, ki so dostopni na Eurostatu, pod podatki zakaj ljudje niso prišli do želenega zdravljenja).
+Tretje področje je zdravje. Tu se bom osredotočila na podatke o število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe.
 
 V zadnjem področju bom raziskovala porabo vode, odpadkov in avtomobilov po regijah.
 
@@ -53,12 +51,20 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
  - `Izdatki za brezposelnost` - meritev: delež dohodka, ki se nameni za brezposelnost
  - `Izdatki za nastanitev` - meritev: delež dohodka, ki se nameni za nastanitev
  
+```{r tabela1, echo=FALSE, message=FALSE}
+kable(head(tabela1), align="ccc")
+``` 
+ 
 2.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
 
  - `regija` - spremenljivka: regija, v kateri so bile narejene meritve
  - `Brezposelnost` - meritev: povprečna stopnja brezposelnosti
  - `Število prebivalcev na enega zdravnika` - meritev: število prebivalcev na enega zdravnika
  - `Delež obsojenih ljudi` - meritev: Delež obsojenih oseb med prebivalci regije po regiji            stalnega prebivališča
+ 
+```{r tabela2, echo=FALSE, message=FALSE}
+kable(head(tabela2), align="cccc")
+```
  
 3.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
 
@@ -68,6 +74,10 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
  - `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri     rojstvu
  - `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno       življenje
  
+```{r tabela3, echo=FALSE, message=FALSE}
+kable(head(tabela3), align="ccc")
+```
+ 
 4.`Leto`- spremenljivka: leto, katerega so bile narejene meritve
 
  - `Regija`- spremenljivka: regija, v kateri so bile narejene meritve
@@ -75,7 +85,9 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
  - `Komunalni odpadki` - meritev: Komunalni odpadki, zbrani z javnim odvozom odpadkov na            prebivalca (kilogram/prebivalca)
  - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih         avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
 
-
+```{r tabela4, echo=FALSE, message=FALSE}
+kable(head(tabela4), align="cccc")
+```
 
 
 ***
@@ -86,21 +98,30 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
+Za začetek sem se odločila iskati povezave med gospodarsko rastjo in velikostjo dohodka. Pričakovano je, da hkrati obe spremenljivki naraščata, saj pozitivna gospodarska rast povečuje dohodek. To je vidno tudi iz grafa, vsaj do leta 2006., nato opazimo velik skok v dohodku ravno pred finančno krizo. Po krizi se rast stabilizira in rast dohodka ustavi.
+
 ```{r graf.bdp, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf.bdp)
+```
 
+Kot drugo področje sem se odločila sem se odločila raziskati povezavo med življenjsko dobo in gospodarsko rastjo. V razviti državi kot je Slovenija je pričakovano, da življenjska doba narašča skupaj z gospodarsko rastjo, kar je posledica inovacij na področju znanosti in medicine. Država tudi učinkovitejše uporablja izdatke ljudi za bolezen. Iz grafa vidimo, da se povprečna življenjska doba moških in žensk v Sloveniji hkrati raste z gospodarsko razvitostjo.
+
+```{r graf.rast.doba, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
+print(graf.rast.doba)
 ```
 
 Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov.
 
-```{r graf1, echo=FALSE, message=FALSE, fig.align='center'}
-print(graf1)
-
+```{r graf.izdatki, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf.izdatki)
 ```
 
-```{r graf3, echo=FALSE, message=FALSE, fig.align='center'}
-print(graf3)
+```{r tortni.graf.izdatki, echo=FALSE, message=FALSE, fig.align='center'}
+print(tortni.graf.izdatki)
+```
 
+```{r graf.leta, echo=FALSE, message=FALSE, fig.align='center'}
+print(graf.leta)
 ```
 
 Spodnji zemljevid prikazuje povprečno stopnjo brezposelnosti po regijah.
@@ -119,7 +140,3 @@ print(zemljevid.obsojenih)
 
 
 ***
-
-# Napredna analiza podatkov
-
-

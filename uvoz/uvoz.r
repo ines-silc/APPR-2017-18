@@ -1,6 +1,6 @@
 sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
-uvozi.dobo <- function() {
+uvozi.zivljenjsko.dobo <- function() {
   link <- "https://sl.wikipedia.org/wiki/Pri%C4%8Dakovana_%C5%BEivljenjska_doba"
   stran <- html_session(link) %>% read_html()
   tabela <- stran %>% html_nodes(xpath="//table")%>% .[[2]] %>% html_table(dec = ",")
@@ -14,7 +14,7 @@ uvozi.dobo <- function() {
   tabela$zenske <- parse_number(tabela$zenske)
   return(tabela)
 }
-doba <- uvozi.dobo()
+doba <- uvozi.zivljenjsko.dobo()
 doba <- gather(doba, moski, zenske, key = "vrsta", value = "st_let")
 doba <- arrange(doba, leto)
 doba <- doba %>% group_by(leto) %>% summarise(st_let = mean(st_let))
@@ -121,6 +121,9 @@ vrsta_urejeno <- c("Ženske" = 1,
                    "Zdrava leta Ženske" = 4,
                    "Zdrava leta pri rojstvu Moški" = 5,
                    "Zdrava leta Moški" = 6)
+tabela31 <- inner_join(bdp, uvozi.zdrava.leta(), by="leto")
+
+
 
 uvozi.naravne.vire <- function(){
   data <- read_csv2("podatki/Naravni_viri.csv",
