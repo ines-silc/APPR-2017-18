@@ -81,7 +81,7 @@ stopnja <- gather(tabela21, stopnja_brezposelnosti, key = "vrsta", value = "meri
 stopnja <- stopnja[, ! names(stopnja) %in% c("vrsta", "prebivalci_na_zdravnika",
                                              "delez_obsojenih_ljudi"), drop = F]
 
-povprecna_stopnja <- stopnja %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+povprecna_stopnja <- stopnja %>% group_by(regija) %>% summarise(Meritev = mean(meritev))
 pnz <- gather(tabela21, prebivalci_na_zdravnika, key = "vrsta", value = "meritev")
 pnz <- pnz[, ! names(pnz) %in% c("vrsta", "stopnja_brezposelnosti",
                                  "delez_obsojenih_ljudi"), drop = F]

@@ -35,6 +35,21 @@ graf.leta <- ggplot(tabela3, aes(x=leto, y=meritev, color = reorder(Vrsta, vrsta
                     labs(title = "Primerjava življenjske dobe in zdravih let")+
                     scale_fill_brewer(palette = "Dark2", name = "Vrsta")
 
+#Primerjava številov avtomobilov in količini odpadkov
+graf.avto.odpadki <- ggplot(data = left_join(odpadki1, avto)) +
+  geom_point(aes(x = avtomobili, y = odpadki), stat = 'identity')+
+  geom_text(aes(x = avtomobili, y = odpadki, label=regija),hjust=0, vjust=0)+
+  labs(title ="Primerjava številov avtomobilov in količini odpadkov")+
+  xlab("Število avtomobilov") + ylab("Količina odpadkov")
+graf.avto.odpadki
+
+graf.brezp.obsojeni <- ggplot(data = left_join(povprecna_stopnja, povprecno_delez_obsojenih)) +
+  geom_point(aes(x = Meritev, y = meritev), stat = 'identity')+
+  geom_text(aes(x = Meritev, y = meritev, label=regija),hjust=0, vjust=0)+
+  labs(title ="Primerjava povprečne stopnje brezposelnosti in deleža obsojenih ljudi")+
+  ylab("Povprečen delež obsojenih") + xlab("Povprečna stopnja brezposelnosti")
+graf.brezp.obsojeni
+
 
 # Uvozimo zemljevid.
 gpclibPermit()
@@ -47,7 +62,7 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
 
 
 zemljevid.stopnje <- ggplot() +
-  geom_polygon(data = stopnja %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+  geom_polygon(data = povprecna_stopnja %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
                aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
                 xlab("") + ylab("") + ggtitle("Povprečna stopnja brezposelnosti po regijah")
 
