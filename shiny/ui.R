@@ -1,21 +1,31 @@
 library(shiny)
+library(DT)
 
 shinyUI(fluidPage(
-  
-  titlePanel("Slovenske pokrajine"),
-  
-  tabsetPanel(
-      tabPanel("Število avtomobilov",
-               sidebarPanel(
-                 selectInput("sprem", label="Izberi kategorijo",
-                             choices=colnames(povprecja[c(-1)]))
-               ),
-               mainPanel(plotOutput("graf1"))),
+  titlePanel("Razvitost slovenskih pokrajin"), 
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("type",label="Kategorija",
+                  choice=c("Poraba vode", "Količina odpadkov", "Število avtomobilov",
+                           "Delež obsojenih", "Število prebivalcev na enega zdravnika")
+                  )
+    ),
+    mainPanel(plotOutput("box")
+              ) 
+
+  )))
+#  titlePanel("Razvitost slovenskih pokrajin"),
+#  sidebarLayout(
+#    sidebarPanel(
       
-      tabPanel("Število naselij",
-               sidebarPanel(
-                  uiOutput("pokrajine")
-                ),
-               mainPanel(plotOutput("naselja")))
-    )
-))
+      # Select type of trend to plot3
+#      selectInput(inputId = "type", label = strong("Kategorija"),
+#                  choices = unique(tabela4$Vrsta)
+#                  )
+#    ),
+    
+    # Output: Description, lineplot, and reference
+#    mainPanel(
+#      plotOutput("distPlot")
+#      )
+#  )))

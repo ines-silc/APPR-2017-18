@@ -7,6 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
+runtime: shiny    
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning = FALSE}
@@ -124,19 +125,7 @@ print(tortni.graf.izdatki)
 print(graf.leta)
 ```
 
-Spodnji zemljevid prikazuje povprečno stopnjo brezposelnosti po regijah.
-
-```{r zemljevid.stopnje, echo=FALSE, message=FALSE, fig.align='center'}
-print(zemljevid.stopnje)
-```
-
-```{r zemljevid.zdravniki, echo=FALSE, message=FALSE, fig.align='center'}
-print(zemljevid.zdravniki)
-```
-
-```{r zemljevid.obsojenih, echo=FALSE, message=FALSE, fig.align='center'}
-print(zemljevid.obsojenih)
-```
-
-
 ***
+```{r shiny, echo = FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=600))
+```
