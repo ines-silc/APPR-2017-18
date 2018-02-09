@@ -21,7 +21,8 @@ graf.izdatki <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) +
          geom_bar(position="dodge", stat="identity", colour="black")+
           labs(title ="Odstotek dohodka za različne vrste izdatkov")+
           scale_x_continuous(breaks=seq(2005,2014,1))+
-          scale_fill_brewer(palette = "Paired")
+          scale_fill_brewer(palette = "Paired") +
+          ylab("Delež dohodka za izdatke v (%)")+xlab("Leto")
 
 
 tortni.graf.izdatki <- ggplot(povprecje_izdatkov, aes(x = factor(1), y=meritev ,fill=factor(vrsta)) ) + 
@@ -29,11 +30,14 @@ tortni.graf.izdatki <- ggplot(povprecje_izdatkov, aes(x = factor(1), y=meritev ,
                       coord_polar(theta = "y") +
                       scale_fill_brewer(palette = "Paired")
 
-graf.leta <- ggplot(tabela3, aes(x=leto, y=meritev, color = reorder(Vrsta, vrsta_urejeno[Vrsta]))) +
+graf.leta <- ggplot(tabela3, aes(x=leto, y=meritev, color = Vrsta)) +
                     geom_line() + geom_point()+
                     scale_x_continuous(breaks=seq(2005,2015,1))+
                     labs(title = "Primerjava življenjske dobe in zdravih let")+
-                    scale_fill_brewer(palette = "Dark2", name = "Vrsta")
+                    scale_fill_brewer(palette = "Dark2", name = "Vrsta dobe")+
+                    ylab("Število let")+xlab("Leto")
+graf.leta
+
 
 #Primerjava številov avtomobilov in količini odpadkov
 graf.avto.odpadki <- ggplot(data = left_join(odpadki1, avto)) +
@@ -63,7 +67,7 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
 
 zemljevid.stopnje <- ggplot() +
   geom_polygon(data = povprecna_stopnja %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
+               aes(x = long, y = lat, group = group, fill =Meritev), color = "black")+
                 xlab("") + ylab("") + ggtitle("Povprečna stopnja brezposelnosti po regijah")
 
 

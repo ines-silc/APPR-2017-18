@@ -13,6 +13,8 @@ shinyServer(function(input, output) {
       print(zemljevid.obsojenih)}
     else if (input$type == "Število prebivalcev na enega zdravnika"){
       print(zemljevid.zdravniki)}
+    else if (input$type == "Stopnja brezposelnosti"){
+      print(zemljevid.stopnje)}
     })
   }
 )

@@ -7,7 +7,8 @@ shinyUI(fluidPage(
     sidebarPanel(
       selectInput("type",label="Kategorija",
                   choice=c("Poraba vode", "Količina odpadkov", "Število avtomobilov",
-                           "Delež obsojenih", "Število prebivalcev na enega zdravnika")
+                           "Delež obsojenih", "Število prebivalcev na enega zdravnika",
+                           "Stopnja brezposelnosti")
                   )
     ),
     mainPanel(plotOutput("box")
