@@ -1,5 +1,3 @@
-library(httpuv)
-library(caTools)
 ---
 title: "Analiza kazalcev trajnostnega razvoja in kakovost življenja v Sloveniji"
 author: "Ines Šilc"
