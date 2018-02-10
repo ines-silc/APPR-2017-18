@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-  runtime: shiny
+  #runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning = FALSE}
@@ -25,7 +25,7 @@ Prvo področje bo splošna ekonomska rast, tu se bom osredotočila predvsem na p
 
 Drugo področje je Varnost, tu so vključeni:, kazalniki socialne zaščite (kjer se merijo izdatki za starost, invalidnost, brezposelnost...), stopnja brezposelnosti, število prebivalcev na enega zdravnika in delež obsojenih oseb.
 
-Tretje področje je zdravje. Tu se bom osredotočila na podatke o število zdravih let ljudi pri rojstvu in kot procent cele življenjske dobe.
+Tretje področje je zdravje. Tu se bom osredotočila na podatke o število zdravih let ljudi.
 
 V zadnjem področju bom raziskovala porabo vode, odpadkov in avtomobilov po regijah.
 
@@ -61,7 +61,7 @@ kable(head(tabela1), align="ccc")
  - `regija` - spremenljivka: regija, v kateri so bile narejene meritve
  - `Brezposelnost` - meritev: povprečna stopnja brezposelnosti
  - `Število prebivalcev na enega zdravnika` - meritev: število prebivalcev na enega zdravnika
- - `Delež obsojenih ljudi` - meritev: Delež obsojenih oseb med prebivalci regije po regiji            stalnega prebivališča
+ - `Delež obsojenih ljudi` - meritev: delež obsojenih oseb med prebivalci regije po regiji            stalnega prebivališča
  
 ```{r tabela2, echo=FALSE, message=FALSE}
 kable(head(tabela2), align="cccc")
@@ -70,9 +70,9 @@ kable(head(tabela2), align="cccc")
 3.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
 
  - `Življenjska doba` - meritev: povprečna življenjska doba
- - `Število zdravih let žensk pri rojstvu` - meritev: pričakovano število zdravih let žensk pri       rojstvu
+ - `Število zdravih let žensk pri rojstvu` - meritev: pričakovano število zdravih let žensk pri       rojstvu kot procent celotne življenjske dobe
  - `Število zdravih let žensk` - meritev: pričakovano število zdravih let žensk skozi celotno         življenje
- - `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri     rojstvu
+ - `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri     rojstvu kot procent celotne življenjske dobe
  - `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno       življenje
  
 ```{r tabela3, echo=FALSE, message=FALSE}
@@ -99,7 +99,7 @@ kable(head(tabela4), align="cccc")
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
-Za začetek sem se odločila iskati povezave med gospodarsko rastjo in velikostjo dohodka. Pričakovano je, da hkrati obe spremenljivki naraščata, saj pozitivna gospodarska rast povečuje dohodek. To je vidno tudi iz grafa, vsaj do leta 2006., nato opazimo velik skok v dohodku ravno pred finančno krizo. Po krizi se rast stabilizira in rast dohodka ustavi.
+Za začetek sem se odločila iskati povezave med gospodarsko rastjo in velikostjo dohodka. Pričakovano je, da hkrati obe spremenljivki naraščata, saj pozitivna gospodarska rast povečuje dohodek. To je vidno tudi iz grafa, vsaj do leta 2008., nato opazimo velik skok v dohodku ravno pred finančno krizo. Po krizi se rast stabilizira in rast dohodka ustavi.
 
 ```{r graf.bdp, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf.bdp)
@@ -111,13 +111,13 @@ Kot drugo področje sem se odločila sem se odločila raziskati povezavo med ži
 print(graf.rast.doba)
 ```
 
-Od razvite države lahko pričakujemo, da velik delež dohodka državljanov namenijo zdravljenju. Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov v Sloveniji od leta 2005 do leta 2014. Vidimo lahko, da za bolezen namenijo državljani povprečno 30% dohodka na državljana, medtem ko gre večina dohodka (okoli 40%) za starost.
+Od razvite države lahko pričakujemo, da velik delež dohodka državljanov namenijo zdravljenju. Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov v Sloveniji od leta 2005 do leta 2014. Vidimo lahko, da za bolezen namenijo državljani povprečno 30% dohodka, medtem ko gre večina dohodka (okoli 40%) za starost.
 
 ```{r graf.izdatki, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf.izdatki)
 ```
 
-Zadnja kategorija, ki se lahko preveri pri kvaliteti življenja, je število zdravih let. Iz grafa vidimo, da je število le-teh upadlo, medtem ko se povprečna življenjska doba ni spremenila. Vzrok za padec ???
+Zadnja kategorija, ki se lahko preveri pri kvaliteti življenja, je število zdravih let. Iz grafa vidimo, da je število le-teh upadlo, medtem ko se povprečna življenjska doba ni spremenila. Število zdravih let sovpada z gospodarsko rastjo, saj je finančna kriza vplivala na oboje.
 
 ```{r graf.leta, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf.leta)

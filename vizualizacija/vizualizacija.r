@@ -21,22 +21,23 @@ graf.izdatki <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) +
          geom_bar(position="dodge", stat="identity", colour="black")+
           labs(title ="Odstotek dohodka za različne vrste izdatkov")+
           scale_x_continuous(breaks=seq(2005,2014,1))+
-          scale_fill_brewer(palette = "Paired") +
+          #scale_fill_manual(name = "Title", labels = c("A", "B", "C", "D", "E"))+
+          scale_fill_brewer(name = "Vrsta izdatkov", 
+                            labels = c("Drugo", "Izdatki za bolezen",
+                            "Izdatki za brezposelnost", "Izdatki za družino in otroke",
+                            "Izdatki za invalidnost", "Izdatki za nastanitev", 
+                            "Izdatki za smrt hranitelja družine", "Izdatki za starost"),
+                            palette = "Paired") +
           ylab("Delež dohodka za izdatke v (%)")+xlab("Leto")
 
-
-tortni.graf.izdatki <- ggplot(povprecje_izdatkov, aes(x = factor(1), y=meritev ,fill=factor(vrsta)) ) + 
-                      geom_bar(width = 1,stat="identity")+
-                      coord_polar(theta = "y") +
-                      scale_fill_brewer(palette = "Paired")
-
-graf.leta <- ggplot(tabela3, aes(x=leto, y=meritev, color = Vrsta)) +
-                    geom_line() + geom_point()+
+graf.leta <- ggplot(tabela3) +
+                    geom_line(aes(x=leto, y=meritev, color = Vrsta)) + 
+                    geom_point(aes(x=leto, y=meritev, color = Vrsta))+
                     scale_x_continuous(breaks=seq(2005,2015,1))+
                     labs(title = "Primerjava življenjske dobe in zdravih let")+
-                    scale_fill_brewer(palette = "Dark2", name = "Vrsta dobe")+
+                    scale_fill_brewer(palette = "Paired", name = "Vrsta dobe")+
                     ylab("Število let")+xlab("Leto")
-graf.leta
+
 
 
 #Primerjava številov avtomobilov in količini odpadkov
@@ -45,14 +46,14 @@ graf.avto.odpadki <- ggplot(data = left_join(odpadki1, avto)) +
   geom_text(aes(x = avtomobili, y = odpadki, label=regija),hjust=0, vjust=0)+
   labs(title ="Primerjava številov avtomobilov in količini odpadkov")+
   xlab("Število avtomobilov") + ylab("Količina odpadkov")
-graf.avto.odpadki
+
 
 graf.brezp.obsojeni <- ggplot(data = left_join(povprecna_stopnja, povprecno_delez_obsojenih)) +
   geom_point(aes(x = Meritev, y = meritev), stat = 'identity')+
   geom_text(aes(x = Meritev, y = meritev, label=regija),hjust=0, vjust=0)+
   labs(title ="Primerjava povprečne stopnje brezposelnosti in deleža obsojenih ljudi")+
   ylab("Povprečen delež obsojenih") + xlab("Povprečna stopnja brezposelnosti")
-graf.brezp.obsojeni
+
 
 
 # Uvozimo zemljevid.
@@ -69,36 +70,39 @@ zemljevid.stopnje <- ggplot() +
   geom_polygon(data = povprecna_stopnja %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
                aes(x = long, y = lat, group = group, fill =Meritev), color = "black")+
                 xlab("") + ylab("") + ggtitle("Povprečna stopnja brezposelnosti po regijah")
+              
 
 
 
 zemljevid.zdravniki <- ggplot() +
-  geom_polygon(data = pnz %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
+  geom_polygon(data = povprecno_pnz %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill =Meritev), color = "black")+
   xlab("") + ylab("") + ggtitle("Povprečna število prebivalcev na enega zdravnika")
 
 zemljevid.obsojenih <- ggplot() +
-  geom_polygon(data = delez_obsojenih %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill =meritev), color = "black")+
+  geom_polygon(data = povprecno_delez_obsojenih %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+               aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
   xlab("") + ylab("") + ggtitle("Povprečen delež obsojenih po regijah")
 
 
 zemljevid.vode <- ggplot() +
   geom_polygon(data = voda %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill = poraba_vode), color = "black")+
-               xlab("") + ylab("") + ggtitle("Poraba vode po regijah")
-                #guides(fill = guide_colorbar(title = "m3/prebivalca"))
+               aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
+               xlab("") + ylab("") + ggtitle("Poraba vode po regijah", 
+                                             subtitle = "Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)")
+                
 
 
 zemljevid.odpadki <- ggplot() +
   geom_polygon(data = odpadki1 %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill = odpadki), color = "black")+
-                xlab("") + ylab("") + ggtitle("Količina odpadkov po regijah")
-                #guides(fill = guide_colorbar(title = "kilogram/prebivalca"))
+               aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
+                xlab("") + ylab("") + ggtitle("Količina odpadkov po regijah", 
+                                              subtitle = "Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)")
+
 
 
 zemljevid.avto <- ggplot() +
   geom_polygon(data = avto %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill = avtomobili), color = "black")+
-                xlab("") + ylab("") + ggtitle("Število avtomobilov na 1000 prebivalcev")
-
+               aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
+                xlab("") + ylab("") + ggtitle("Število avtomobilov na 1000 prebivalcev", 
+                                              subtitle = "Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)")

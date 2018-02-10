@@ -87,11 +87,13 @@ pnz <- pnz[, ! names(pnz) %in% c("vrsta", "stopnja_brezposelnosti",
                                  "delez_obsojenih_ljudi"), drop = F]
 
 povprecno_pnz <- pnz %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+names(povprecno_pnz) <- c("regija", "Meritev")
 delez_obsojenih <- gather(tabela21, delez_obsojenih_ljudi, key = "vrsta", value = "meritev")
 delez_obsojenih <- delez_obsojenih[, ! names(delez_obsojenih) %in% 
                                      c("stopnja_brezposelnosti", "prebivalci_na_zdravnika",
                                        "vrsta"), drop = F]
 povprecno_delez_obsojenih <- delez_obsojenih %>% group_by(regija) %>% summarise(meritev = mean(meritev))
+names(povprecno_delez_obsojenih) <- c("regija", "Meritev")
 
 
 uvozi.dobo <- function(){
@@ -104,23 +106,16 @@ uvozi.dobo <- function(){
 
 uvozi.zdrava.leta <- function(){
   data <- read_csv("podatki/zdrava_leta.csv",
-                    col_names = c("leto", "Zdrava leta pri rojstvu Ženske", "Zdrava leta Ženske",
-                                  "Zdrava leta pri rojstvu Moški", "Zdrava leta Moški"), 
+                    col_names = c("leto", "Zdrava leta pri rojstvu ženske", "Zdrava leta ženske",
+                                  "Zdrava leta pri rojstvu moški", "Zdrava leta moški"), 
                     locale = locale(encoding = "Windows-1250"), skip = 10, n_max = 11)
   return(data)
 }
 
 tabela3 <- inner_join(uvozi.dobo(), uvozi.zdrava.leta(), by="leto")
-tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta pri rojstvu Ženske`, `Zdrava leta Ženske`,
-            `Zdrava leta pri rojstvu Moški`, `Zdrava leta Moški`,
+tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta ženske`, `Zdrava leta moški`,
             key = "Vrsta", value = "meritev")
 tabela3 <- arrange(tabela3, leto)
-vrsta_urejeno <- c("Ženske" = 1,
-                   "Moški" = 2,
-                   "Zdrava leta pri rojstvu Ženske" = 3,
-                   "Zdrava leta Ženske" = 4,
-                   "Zdrava leta pri rojstvu Moški" = 5,
-                   "Zdrava leta Moški" = 6)
 tabela31 <- inner_join(bdp, uvozi.zdrava.leta(), by="leto")
 
 
@@ -139,8 +134,10 @@ tabela4 <- arrange(tabela4, leto)
 tabela41 <- uvozi.naravne.vire() %>% fill(1)
 poraba_vode <- tabela41[, ! names(tabela41) %in% c("odpadki", "st_avtomobilov"), drop = F]
 voda <- poraba_vode %>% group_by(regija) %>% summarise(poraba_vode = mean(poraba_vode))
+names(voda) <- c("regija", "Meritev")
 odpadki <- tabela41[, ! names(tabela41) %in% c("poraba_vode", "st_avtomobilov"), drop = F]
 odpadki1 <- odpadki %>% group_by(regija) %>% summarise(odpadki=mean(odpadki))
+names(odpadki1) <- c("regija", "Meritev")
 avtomobili <- tabela41[, ! names(tabela41) %in% c("odpadki", "poraba_vode"), drop = F] 
 avto <- avtomobili %>% group_by(regija) %>% summarise(avtomobili = mean(st_avtomobilov))
-
+names(avto) <- c("regija", "Meritev")
