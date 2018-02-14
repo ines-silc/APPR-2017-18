@@ -25,17 +25,11 @@ uvozi.bdp <- function() {
                     col_names = c("leto", "rast", "dohodek"),
                     locale = locale(decimal_mark = ".", encoding = "Windows-1250"), skip = 3, n_max = 21, na = "...")
   data$rast <- parse_number(data$rast)
-  #Podatki za leta 2000–2006 predstavljajo razpoložljiva sredstva gospodinjstev 
-  #(brez lastne proizvodnje in bonitet) na člana gospodinjstva (EUR) 
-  #iz raziskovanja Poraba v gospodinjstvih.
-  #Razpoložljiva sredstva gospodinjstev obsegajo vsa denarna sredstva, 
-  #ki jih imajo gospodinjstva v opazovanem obdobju na razpolago.
-  #Podatki so preračunani iz obdobja treh zaporednih let (npr. 2005–2007) 
-  #na srednje leto (npr. 2006) kot referenčno leto.
-  
+  data$rast <- data$rast/10
   return(data)
 }
 bdp <- uvozi.bdp()
+prikaz.bdp <- uvozi.bdp()[6:20,]
 
 prva <- inner_join(bdp, doba, by= "leto")
 
@@ -117,7 +111,7 @@ tabela3 <- gather(tabela3, `Moški`, `Ženske`, `Zdrava leta ženske`, `Zdrava l
             key = "Vrsta", value = "meritev")
 tabela3 <- arrange(tabela3, leto)
 tabela31 <- inner_join(bdp, uvozi.zdrava.leta(), by="leto")
-
+prikaz.tabela3 <- inner_join(uvozi.dobo(), uvozi.zdrava.leta(), by="leto")[,c(1, 2, 3, 5, 7)]
 
 
 uvozi.naravne.vire <- function(){

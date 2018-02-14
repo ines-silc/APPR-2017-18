@@ -4,7 +4,7 @@ graf.bdp <- ggplot(data = bdp) +
             geom_point(aes(x = dohodek, y = rast))+ 
             labs(title ="Povezava med rastjo in velikostjo dohodka")+
             geom_text(aes(x = dohodek, y = rast, label=leto),hjust=0, vjust=0)+
-            scale_y_continuous(limits = c(1250, 1700))+
+            scale_y_continuous(limits = c(125, 170))+
             scale_x_continuous(limits = c(4300, 9000))+
             xlab("Dohodek") + ylab("Gospodarska rast")
             
@@ -64,45 +64,54 @@ levels(zemljevid$NAME_1)[levels(zemljevid$NAME_1) %in%
                            c("Notranjsko-kraška",
                              "Spodnjeposavska")] <- c("Primorsko-notranjska",
                                                       "Posavska")
-
+imena.pokrajin <- aggregate(cbind(long, lat) ~ regija, data = (avto %>% right_join(zemljevid, by = c("regija" = "NAME_1"))), FUN=function(x)mean(range(x)))
 
 zemljevid.stopnje <- ggplot() +
   geom_polygon(data = povprecna_stopnja %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill =Meritev), color = "black")+
-                xlab("") + ylab("") + ggtitle("Povprečna stopnja brezposelnosti po regijah")
-              
-
-
+              aes(x = long, y = lat, group = group, fill =Meritev), color = "black")+
+              xlab("") + ylab("")+ 
+              geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija)) + 
+              ggtitle("Povprečna stopnja brezposelnosti po regijah")
 
 zemljevid.zdravniki <- ggplot() +
   geom_polygon(data = povprecno_pnz %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
                aes(x = long, y = lat, group = group, fill =Meritev), color = "black")+
-  xlab("") + ylab("") + ggtitle("Povprečna število prebivalcev na enega zdravnika")
+              xlab("") + ylab("") + 
+              geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija))+ 
+              ggtitle("Povprečna število prebivalcev na enega zdravnika")
 
 zemljevid.obsojenih <- ggplot() +
   geom_polygon(data = povprecno_delez_obsojenih %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
                aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
-  xlab("") + ylab("") + ggtitle("Povprečen delež obsojenih po regijah")
+              xlab("") + ylab("")+ 
+              geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija)) + 
+              ggtitle("Povprečen delež obsojenih po regijah")
 
 
 zemljevid.vode <- ggplot() +
   geom_polygon(data = voda %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
-               xlab("") + ylab("") + ggtitle("Poraba vode po regijah", 
-                                             subtitle = "Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)")
+              aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
+              xlab("") + ylab("")+ 
+              geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija)) + 
+              ggtitle("Poraba vode po regijah", 
+              subtitle = "Poraba vode, dobavljene iz javnega vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)")
                 
 
 
 zemljevid.odpadki <- ggplot() +
   geom_polygon(data = odpadki1 %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
                aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
-                xlab("") + ylab("") + ggtitle("Količina odpadkov po regijah", 
-                                              subtitle = "Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)")
-
+                xlab("") + ylab("")+ 
+                geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija)) + 
+                ggtitle("Količina odpadkov po regijah", 
+                subtitle = "Komunalni odpadki, zbrani z javnim odvozom odpadkov na prebivalca (kilogram/prebivalca)")
 
 
 zemljevid.avto <- ggplot() +
-  geom_polygon(data = avto %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
-               aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
-                xlab("") + ylab("") + ggtitle("Število avtomobilov na 1000 prebivalcev", 
-                                              subtitle = "Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)")
+                geom_polygon(data = avto %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
+                aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
+                xlab("") + ylab("")+ 
+                geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija))+ 
+                ggtitle("Število avtomobilov na 1000 prebivalcev", 
+                subtitle = "Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)")
+

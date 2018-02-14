@@ -7,7 +7,7 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
-  #runtime: shiny
+  runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning = FALSE}
@@ -38,12 +38,18 @@ source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
 Uvozila sem podatke o občinah v obliki CSV s statističnega urada in Eurostata, ter v obliki HTML
-z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
+z Wikipedije. Podatke imam v petih razpredelnicah v obliki *tidy data*.
 
-1.`Leto` -spremenljivka: leto, katerega so bile narejene meritve
-
+1. `BDP` - Podatki o bruto domačem proizvodu in gospodarski rasti:
+ - `Leto` -spremenljivka: leto, katerega so bile narejene meritve
  - `Bruto domači proizvod` - meritev: rast bruto domačega proizvoda (število)
  - `Dohodek` - meritev: povprečni dohodek na člana gospodinjstva (število)
+```{r prikaz.bdp, echo=FALSE, message=FALSE}
+kable(head(prikaz.bdp), align="ccc")
+``` 
+ 
+2. `Izdatki` - podatki o posameznih delih dohodka:
+ - `Leto` - spremenljivka: leto, katerega so bile narejene meritve
  - `Izdatki za zdravstveno varstvo` - meritev: delež dohodka, ki se nameni za zdravstveno varstvo
  - `Izdatki za invalidnost` - meritev: delež dohodka, ki se nameni za invalidnost
  - `Izdatki za smrt hranitelja` - meritev: delež dohodka, ki se nameni za smrt hranitelja
@@ -52,42 +58,41 @@ z Wikipedije. Podatke imam v štirih razpredelnicah v obliki *tidy data*.
  - `Izdatki za brezposelnost` - meritev: delež dohodka, ki se nameni za brezposelnost
  - `Izdatki za nastanitev` - meritev: delež dohodka, ki se nameni za nastanitev
  
-```{r tabela1, echo=FALSE, message=FALSE}
-kable(head(tabela1), align="ccc")
+```{r izdatki, echo=FALSE, message=FALSE}
+kable(head(izdatki), align="ccc")
 ``` 
  
-2.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
-
+3. `Družbeni kazalniki` -podatki o družbenih kazalnikih po regijah:
+ - `Leto` - spremenljivka: leto, katerega so bile narejene meritve
  - `regija` - spremenljivka: regija, v kateri so bile narejene meritve
  - `Brezposelnost` - meritev: povprečna stopnja brezposelnosti
  - `Število prebivalcev na enega zdravnika` - meritev: število prebivalcev na enega zdravnika
  - `Delež obsojenih ljudi` - meritev: delež obsojenih oseb med prebivalci regije po regiji            stalnega prebivališča
  
-```{r tabela2, echo=FALSE, message=FALSE}
-kable(head(tabela2), align="cccc")
+```{r tabela21, echo=FALSE, message=FALSE}
+kable(head(tabela21), align="cccc")
 ```
  
-3.`Leto` - spremenljivka: leto, katerega so bile narejene meritve
-
- - `Življenjska doba` - meritev: povprečna življenjska doba
- - `Število zdravih let žensk pri rojstvu` - meritev: pričakovano število zdravih let žensk pri       rojstvu kot procent celotne življenjske dobe
+4. `Življenjska doba` - podatki o zdravih letih in letih na splošno:
+ - `Leto` - spremenljivka: leto, katerega so bile narejene meritve
+ - `Življenjska doba ženske` - meritev: povprečna življenjska doba ženske
+ - `Življenjska doba moški` - meritev: povprečna življenjska moških
  - `Število zdravih let žensk` - meritev: pričakovano število zdravih let žensk skozi celotno         življenje
- - `Število zdravih let moških pri rojstvu` - meritev: pričakovano število zdravih let moških pri     rojstvu kot procent celotne življenjske dobe
  - `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno       življenje
  
-```{r tabela3, echo=FALSE, message=FALSE}
-kable(head(tabela3), align="ccc")
+```{r prikaz.tabela3, echo=FALSE, message=FALSE}
+kable(head(prikaz.tabela3), align="ccc")
 ```
  
-4.`Leto`- spremenljivka: leto, katerega so bile narejene meritve
-
+5. `Okoljski kazatelji` - podatki o okoljskih kazateljih po regijah:
+ - `Leto`- spremenljivka: leto, katerega so bile narejene meritve
  - `Regija`- spremenljivka: regija, v kateri so bile narejene meritve
  - `Poraba vode, dobavljene iz javnega vodovoda` - meritev: Poraba vode, dobavljene iz javnega       vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)
  - `Komunalni odpadki` - meritev: Komunalni odpadki, zbrani z javnim odvozom odpadkov na            prebivalca (kilogram/prebivalca)
  - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih         avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
 
-```{r tabela4, echo=FALSE, message=FALSE}
-kable(head(tabela4), align="cccc")
+```{r tabela41, echo=FALSE, message=FALSE}
+kable(head(tabela41), align="cccc")
 ```
 
 
@@ -105,13 +110,13 @@ Za začetek sem se odločila iskati povezave med gospodarsko rastjo in velikostj
 print(graf.bdp)
 ```
 
-Kot drugo področje sem se odločila sem se odločila raziskati povezavo med življenjsko dobo in gospodarsko rastjo. V razviti državi kot je Slovenija je pričakovano, da življenjska doba narašča skupaj z gospodarsko rastjo, kar je posledica inovacij na področju znanosti in medicine. Država tudi učinkovitejše uporablja izdatke ljudi za bolezen. Iz grafa vidimo, da se povprečna življenjska doba moških in žensk v Sloveniji hkrati raste z gospodarsko razvitostjo.
+Kot drugo področje sem se odločila sem se odločila raziskati povezavo med življenjsko dobo in gospodarsko rastjo. V razviti državi kot je Slovenija je pričakovano, da življenjska doba narašča skupaj z gospodarsko rastjo, kar je posledica inovacij na področju znanosti in medicine. Država tudi učinkovitejše uporablja izdatke ljudi za bolezen. Iz grafa vidimo, da povprečna življenjska doba moških in žensk v Sloveniji hkrati raste z gospodarsko razvitostjo.
 
 ```{r graf.rast.doba, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf.rast.doba)
 ```
 
-Od razvite države lahko pričakujemo, da velik delež dohodka državljanov namenijo zdravljenju. Spodnji graf prikazuje Odstotek dohodka za različne vrste izdatkov v Sloveniji od leta 2005 do leta 2014. Vidimo lahko, da za bolezen namenijo državljani povprečno 30% dohodka, medtem ko gre večina dohodka (okoli 40%) za starost.
+Od razvite države lahko pričakujemo, da velik delež dohodka državljanov namenijo zdravljenju. Spodnji graf prikazuje odstotek dohodka za različne vrste izdatkov v Sloveniji od leta 2005 do leta 2014. Vidimo lahko, da za bolezen namenijo državljani povprečno 30% dohodka, medtem ko gre večina dohodka (okoli 40%) za starost.
 
 ```{r graf.izdatki, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf.izdatki)

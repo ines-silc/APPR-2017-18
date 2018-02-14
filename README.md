@@ -24,38 +24,41 @@ Za vir podatkov bom uporabljala Statistični urad republike Slovenije (dostopno 
 
 ## Podatki v tabelah
 
-*Tabela 1*:
-* Leto (2000-2014)
-* Bruto domači proizvod
-* Dohodek
-* Izdatki za zdravstveno varstvo
-* Izdatki za invalidnost
-* Izdatki za smrt hranitelja
-* Izdatki za starost
-* Izdatki za družino
-* Izdatki za brezposelnost
-* Izdatki za nastanitev
+1. `BDP` - Podatki o bruto domačem proizvodu in gospodarski rasti:
+ - `Leto` -spremenljivka: leto, katerega so bile narejene meritve
+ - `Bruto domači proizvod` - meritev: rast bruto domačega proizvoda (število)
+ - `Dohodek` - meritev: povprečni dohodek na člana gospodinjstva (število)
 
-*Tabela 2*:
-* Leto
-* Brezposelnost
-* Število prebivalcev na enega zdravnika
-* Delež obsojenih ljudi
+2. `Izdatki` - podatki o posameznih delih dohodka:
+ - `Leto` - spremenljivka: leto, katerega so bile narejene meritve
+ - `Izdatki za zdravstveno varstvo` - meritev: delež dohodka, ki se nameni za zdravstveno varstvo
+ - `Izdatki za invalidnost` - meritev: delež dohodka, ki se nameni za invalidnost
+ - `Izdatki za smrt hranitelja` - meritev: delež dohodka, ki se nameni za smrt hranitelja
+ - `Izdatki za starost` - meritev: delež dohodka, ki se nameni za starost
+ - `Izdatki za družino` - meritev: delež dohodka, ki se nameni za družino
+ - `Izdatki za brezposelnost` - meritev: delež dohodka, ki se nameni za brezposelnost
+ - `Izdatki za nastanitev` - meritev: delež dohodka, ki se nameni za nastanitev
 
-*Tabela 3*:
-* Leto (2005-2015)
-* Življenjska doba
-* Število zdravih let žensk pri rojstvu
-* Število zdravih let žensk
-* Število zdravih let moških pri rojstvu
-* Število zdravih let moških
+3. `Družbeni kazalniki` -podatki o družbenih kazalnikih po regijah:
+ - `Leto` - spremenljivka: leto, katerega so bile narejene meritve
+ - `regija` - spremenljivka: regija, v kateri so bile narejene meritve
+ - `Brezposelnost` - meritev: povprečna stopnja brezposelnosti
+ - `Število prebivalcev na enega zdravnika` - meritev: število prebivalcev na enega zdravnika
+ - `Delež obsojenih ljudi` - meritev: delež obsojenih oseb med prebivalci regije po regiji            stalnega prebivališča
+ 
+4. `Življenjska doba` - podatki o zdravih letih in letih na splošno:
+ - `Leto` - spremenljivka: leto, katerega so bile narejene meritve
+ - `Življenjska doba ženske` - meritev: povprečna življenjska doba ženske
+ - `Življenjska doba moški` - meritev: povprečna življenjska moških
+ - `Število zdravih let žensk` - meritev: pričakovano število zdravih let žensk skozi celotno         življenje
+ - `Število zdravih let moških` - meritev: pričakovano število zdravih let moških skozi celotno       življenje
 
-*Tabela 4*:
-* Leto
-* Regija
-* Poraba vode, dobavljene iz javnega vodovoda
-* Komunalni odpadki
-* Število vseh osebnih avtomobilov na 1.000 prebivalcev
+5. `Okoljski kazatelji` - podatki o okoljskih kazateljih po regijah:
+ - `Leto`- spremenljivka: leto, katerega so bile narejene meritve
+ - `Regija`- spremenljivka: regija, v kateri so bile narejene meritve
+ - `Poraba vode, dobavljene iz javnega vodovoda` - meritev: Poraba vode, dobavljene iz javnega       vodovoda, v gospodinjstvih na prebivalca (m3/prebivalca)
+ - `Komunalni odpadki` - meritev: Komunalni odpadki, zbrani z javnim odvozom odpadkov na            prebivalca (kilogram/prebivalca)
+ - `Število vseh osebnih avtomobilov na 1.000 prebivalcev` - meritev: Število vseh osebnih         avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)
 
 ## Program
 
