@@ -1,18 +1,19 @@
 # 3. faza: Vizualizacija podatkov
 
 graf.bdp <- ggplot(data = bdp) +
-            geom_point(aes(x = dohodek, y = rast))+ 
+            geom_point(aes(x = dohodek, y = rast), color = "blue")+ 
             labs(title ="Povezava med rastjo in velikostjo dohodka")+
-            geom_text(aes(x = dohodek, y = rast, label=leto),hjust=0, vjust=0)+
-            scale_y_continuous(limits = c(125, 170))+
-            scale_x_continuous(limits = c(4300, 9000))+
+            geom_text(aes(x = dohodek, y = rast, label=leto),
+                      hjust = 0, vjust = -0.3)+
+            scale_y_continuous(limits = c(130, 170))+
+            scale_x_continuous(limits = c(4700, 8900))+
             xlab("Dohodek") + ylab("Gospodarska rast")
-            
+     
 
 graf.rast.doba <- ggplot(data = prva) +
               geom_point(aes(x = rast, y = st_let), stat = 'identity')+
               geom_smooth(aes(x = rast, y = st_let), method = lm)+
-              geom_text(aes(x = rast, y = st_let, label=leto),hjust=0, vjust=0)+
+              geom_text(aes(x = rast, y = st_let, label=leto),hjust=0, vjust=-0.3)+
               labs(title ="Povezava gospodarske rasti in življenjske dobe")+
               ylab("Življenjska doba") + xlab("Gospodarska rast")
 
@@ -21,22 +22,23 @@ graf.izdatki <- ggplot(data = izdatki, aes(x=leto, y=meritev, fill = vrsta)) +
          geom_bar(position="dodge", stat="identity", colour="black")+
           labs(title ="Odstotek dohodka za različne vrste izdatkov")+
           scale_x_continuous(breaks=seq(2005,2014,1))+
-          #scale_fill_manual(name = "Title", labels = c("A", "B", "C", "D", "E"))+
           scale_fill_brewer(name = "Vrsta izdatkov", 
                             labels = c("Drugo", "Izdatki za bolezen",
                             "Izdatki za brezposelnost", "Izdatki za družino in otroke",
                             "Izdatki za invalidnost", "Izdatki za nastanitev", 
                             "Izdatki za smrt hranitelja družine", "Izdatki za starost"),
                             palette = "Paired") +
-          ylab("Delež dohodka za izdatke v (%)")+xlab("Leto")
+          ylab("Delež dohodka za različne izdatke (v %)")+xlab("Leto")
+
 
 graf.leta <- ggplot(tabela3) +
                     geom_line(aes(x=leto, y=meritev, color = Vrsta)) + 
                     geom_point(aes(x=leto, y=meritev, color = Vrsta))+
                     scale_x_continuous(breaks=seq(2005,2015,1))+
-                    labs(title = "Primerjava življenjske dobe in zdravih let")+
+                    labs(title = "Primerjava celotne življenjske dobe in zdravih let")+
                     scale_fill_brewer(palette = "Paired", name = "Vrsta dobe")+
                     ylab("Število let")+xlab("Leto")
+
 
 
 
@@ -72,6 +74,7 @@ zemljevid.stopnje <- ggplot() +
               xlab("") + ylab("")+ 
               geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija)) + 
               ggtitle("Povprečna stopnja brezposelnosti po regijah")
+
 
 zemljevid.zdravniki <- ggplot() +
   geom_polygon(data = povprecno_pnz %>% right_join(zemljevid, by = c("regija" = "NAME_1")),
@@ -112,6 +115,6 @@ zemljevid.avto <- ggplot() +
                 aes(x = long, y = lat, group = group, fill = Meritev), color = "black")+
                 xlab("") + ylab("")+ 
                 geom_text(data=imena.pokrajin, aes(x =long, y=lat, label = regija))+ 
-                ggtitle("Število avtomobilov na 1000 prebivalcev", 
+                ggtitle("Število avtomobilov", 
                 subtitle = "Število vseh osebnih avtomobilov na 1.000 prebivalcev (število/1.000 prebivalcev)")
 

@@ -104,31 +104,31 @@ kable(head(tabela41), align="cccc")
 source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
 ```
 
-Za začetek sem se odločila iskati povezave med gospodarsko rastjo in velikostjo dohodka. Pričakovano je, da hkrati obe spremenljivki naraščata, saj pozitivna gospodarska rast povečuje dohodek. To je vidno tudi iz grafa, vsaj do leta 2008., nato opazimo velik skok v dohodku ravno pred finančno krizo. Po krizi se rast stabilizira in rast dohodka ustavi.
+Za začetek sem se odločila iskati povezave med gospodarsko rastjo in velikostjo dohodka. Pričakovano je, da hkrati obe spremenljivki naraščata, saj pozitivna gospodarska rast povečuje dohodek. To je vidno tudi iz grafa, vsaj do leta 2008, nato opazimo velik skok v dohodku ravno pred finančno krizo. Po krizi se gospodarska rast stabilizira in rast dohodka ustavi. V prihodnjosti lahko hkrati pričakujemo višjo gospodarsko rast in višji dohodek, če ne pride do nove finančne krize.
 
 ```{r graf.bdp, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf.bdp)
 ```
 
-Kot drugo področje sem se odločila sem se odločila raziskati povezavo med življenjsko dobo in gospodarsko rastjo. V razviti državi kot je Slovenija je pričakovano, da življenjska doba narašča skupaj z gospodarsko rastjo, kar je posledica inovacij na področju znanosti in medicine. Država tudi učinkovitejše uporablja izdatke ljudi za bolezen. Iz grafa vidimo, da povprečna življenjska doba moških in žensk v Sloveniji hkrati raste z gospodarsko razvitostjo.
+Kot drugo področje sem se odločila sem se odločila raziskati povezavo med življenjsko dobo in gospodarsko rastjo. V razviti državi kot je Slovenija je pričakovano, da življenjska doba narašča skupaj z gospodarsko rastjo, kar je posledica inovacij na področju znanosti in medicine. Država tudi učinkovitejše uporablja izdatke ljudi za zdravstvo. Iz grafa vidimo, da povprečna življenjska doba moških in žensk v Sloveniji hkrati raste z gospodarsko razvitostjo. Izjema je leto 2007, tu se je povprečna življenjska doba zmanjšala.
 
 ```{r graf.rast.doba, echo=FALSE, message=FALSE, fig.align='center', warning = FALSE}
 print(graf.rast.doba)
 ```
 
-Od razvite države lahko pričakujemo, da velik delež dohodka državljanov namenijo zdravljenju. Spodnji graf prikazuje odstotek dohodka za različne vrste izdatkov v Sloveniji od leta 2005 do leta 2014. Vidimo lahko, da za bolezen namenijo državljani povprečno 30% dohodka, medtem ko gre večina dohodka (okoli 40%) za starost.
+Od razvite države lahko pričakujemo, da velik delež dohodka državljanov namenijo zdravljenju. Spodnji graf prikazuje odstotek dohodka za različne vrste izdatkov v Sloveniji od leta 2005 do leta 2014. Vidimo lahko, da za bolezen namenijo državljani povprečno 30% dohodka, medtem ko gre večina dohodka (okoli 40%) za starost. Najmanjši del izdatkov predstavljajo izdatki za nastanitev in izdatki za brezposelnost.
 
 ```{r graf.izdatki, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf.izdatki)
 ```
 
-Zadnja kategorija, ki se lahko preveri pri kvaliteti življenja, je število zdravih let. Iz grafa vidimo, da je število le-teh upadlo, medtem ko se povprečna življenjska doba ni spremenila. Število zdravih let sovpada z gospodarsko rastjo, saj je finančna kriza vplivala na oboje.
+Zadnja kategorija kvalitete življenja, je število zdravih let. Iz grafa vidimo, da je število le-teh upadlo, medtem ko se povprečna življenjska doba ni spremenila. Število zdravih let sovpada z gospodarsko rastjo, saj je finančna kriza vplivala na oboje. Slovenija je v primerjavi z evropskimi državami med slabšo polovico v številu zdravih let. Na slabšem so Hrvaška, Avstrija, Estonija in Latvija, najvišje število zdravih let pa imajo Norveška, Švedska in Islandija.
 
 ```{r graf.leta, echo=FALSE, message=FALSE, fig.align='center'}
 print(graf.leta)
 ```
 
-Razvitost Slovenije lahko gledamo tudi skozi kazalnike varnosti, porabo naravnih virov, količina odpadkov in število avtomobilov. Na družbenem področju najprej poglejmo povprečno stopnjo registrirane brezposelnosti, ta je povprečno najvišja na Pomurskem. Stopnja brezposelnosti ponavadi sovpada z visokim deležem obsojenih, ta je najvišja v Jugovzhodni Sloveniji, a ji sledita Podravska in Pomurska. Zadnji kazalnik varnosti pa je število prebivalcev na enega zdravnika, ki pa kaže, da je regija, kateri gre na tem področju najslabše, Primorsko-notranjska.
+Razvitost Slovenije lahko gledamo tudi skozi kazalnike varnosti, porabo naravnih virov, količina odpadkov in število avtomobilov. Na družbenem področju najprej poglejmo povprečno stopnjo registrirane brezposelnosti, ta je najvišja na Pomurskem. Stopnja brezposelnosti ponavadi sovpada z visokim deležem obsojenih, ta je najvišja v Jugovzhodni Sloveniji, a ji sledita Podravska in Pomurska. Zadnji kazalnik varnosti pa je število prebivalcev na enega zdravnika, ki pa kaže, da je regija, kateri gre na tem področju najslabše, Primorsko-notranjska.
 
 Prvi izmed okoljskih kazalnikov razvitosti je poraba vode. Najslabši rezultat ima tu Osrednje-slovenska, ampak to bi pričakovali, saj je to tudi najpogosteje poseljeno območje, takoj za njo pa sledi Gorenjska. Glede na količino odpadkov izstopa Obalno-kraška. Zadnji okoljski kazalnik je število avtomobilov na 1.000 prebivalcev, tu pa izstopata Obalno-kraška in Goriška.
 
